@@ -1,0 +1,60 @@
+,.hero {
+    padding: 120px 20px 60px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero__byline {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #000;
+    font-weight: 700;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .whatsapp-button {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .whatsapp-button:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  .letter {
+    display: inline-block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #000;
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+  }
+  
+  .letter:hover {
+    transform: translateY(-3px) scale(1.05);
+    color: #facc15; /* золотистый акцент при наведении */
+  }
+  
+  

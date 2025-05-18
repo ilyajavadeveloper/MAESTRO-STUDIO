@@ -1,6 +1,6 @@
 // src/components/WhatsAppButton.jsx
 import React from 'react';
-
+import './WhatsAppButton.css'; // Assuming you have a CSS file for styling
 const WhatsAppButton = () => {
   return (
     <a
