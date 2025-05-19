@@ -28,3 +28,57 @@
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+.hero__byline {
+  font-size: 0.9rem;
+  color: #444; /* Было #aaa — стало темнее */
+  margin-bottom: 10px;
+  display: block;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 1rem 0;
+  color: #000; /* Было #fff — теперь чёрный */
+}
+
+.hero__text {
+  font-size: 1.1rem;
+  color: #111; /* Было #ddd — теперь тёмный */
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.hero__cta-wrapper {
+  display: flex;
+  justify-content: center; /* Центрируем кнопку */
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 40px;
+  background-color: #25D366;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.hero-cta:hover {
+  background-color: #1ebc59;
+  transform: translateY(-3px);
+}
+
+.whatsapp-icon {
+  font-size: 1.5rem;
+}

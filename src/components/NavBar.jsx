@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
 import './NavBar.css';
@@ -8,11 +8,28 @@ const Navbar = () => {
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Убираем scroll-jump
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [menuOpen]);
+
   return (
     <header className="navbar">
-      <div className="navbar__logo">MAESTROSTUDIO</div>
+      <div className="navbar__left">
+        <div className="navbar__logo">MAESTROSTUDIO</div>
+        <a href="https://wa.me/972524388967" className="navbar__cta">
+          {t('navbar.book')}
+        </a>
+      </div>
 
-      <LanguageSwitcher />
+      {/* десктоп */}
+      <div className="lang-desktop">
+        <LanguageSwitcher />
+      </div>
 
       <button className="burger" onClick={() => setMenuOpen(!menuOpen)}>
         <span className="burger-line" />
@@ -20,30 +37,29 @@ const Navbar = () => {
         <span className="burger-line" />
       </button>
 
-      <nav className={`navbar__menu ${menuOpen ? 'open' : ''}`}>
-        <Link to="hero"    smooth offset={-70} duration={500} onClick={() => setMenuOpen(false)}>
-          {t('navbar.home')}
-        </Link>
-        <Link to="gallery" smooth offset={-70} duration={500} onClick={() => setMenuOpen(false)}>
-          {t('navbar.gallery')}
-        </Link>
-        <Link to="services" smooth offset={-70} duration={500} onClick={() => setMenuOpen(false)}>
-          {t('navbar.services')}
-        </Link>
-        <Link to="faq"     smooth offset={-70} duration={500} onClick={() => setMenuOpen(false)}>
-          {t('navbar.faq')}
-        </Link>
-        <Link to="contact" smooth offset={-70} duration={500} onClick={() => setMenuOpen(false)}>
-          {t('navbar.contact')}
-        </Link>
-      </nav>
+      <div className={`navbar__menu-wrapper ${menuOpen ? 'open' : ''}`}>
+        <nav className="navbar__menu">
+          <Link to="hero" smooth offset={-70} duration={500} onClick={() => setMenuOpen(false)}>
+            {t('navbar.home')}
+          </Link>
+          <Link to="gallery" smooth offset={-70} duration={500} onClick={() => setMenuOpen(false)}>
+            {t('navbar.gallery')}
+          </Link>
+          <Link to="services" smooth offset={-70} duration={500} onClick={() => setMenuOpen(false)}>
+            {t('navbar.services')}
+          </Link>
+          <Link to="faq" smooth offset={-70} duration={500} onClick={() => setMenuOpen(false)}>
+            {t('navbar.faq')}
+          </Link>
+          <Link to="contact" smooth offset={-70} duration={500} onClick={() => setMenuOpen(false)}>
+            {t('navbar.contact')}
+          </Link>
 
-      <a
-        href="https://wa.me/972524388967"
-        className="navbar__cta"
-      >
-        {t('navbar.book')}
-      </a>
+          <div className="lang-mobile">
+            <LanguageSwitcher />
+          </div>
+        </nav>
+      </div>
     </header>
   );
 };
