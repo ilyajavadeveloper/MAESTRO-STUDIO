@@ -8,25 +8,21 @@ const Navbar = () => {
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Убираем scroll-jump
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
   }, [menuOpen]);
 
   return (
     <header className="navbar">
       <div className="navbar__left">
         <div className="navbar__logo">MAESTROSTUDIO</div>
-        <a href="https://wa.me/972524388967" className="navbar__cta">
+
+        {/* Кнопка видна только на десктопе */}
+        <a href="https://wa.me/972524388967" className="navbar__cta navbar__cta--desktop">
           {t('navbar.book')}
         </a>
       </div>
 
-      {/* десктоп */}
       <div className="lang-desktop">
         <LanguageSwitcher />
       </div>
