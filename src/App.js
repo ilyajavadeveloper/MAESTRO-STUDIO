@@ -1,12 +1,17 @@
+// src/App.js
+import React from 'react';
+import './i18n';
+import './components/Responsive.css';
 
-import Hero from './components/Hero';
+import Navbar  from './components/NavBar';
+import Hero    from './components/Hero';
 import Gallery from './components/Gallery';
 import Services from './components/Services';
+import FAQ     from './components/FAQ';
 import Contact from './components/Contact';
-import Navbar from './components/NavBar';
-import FAQ from './components/FAQ';
+import Footer  from './components/Footer';
 
-const App = () => {
+function App() {
   return (
     <div>
       <Navbar />
@@ -15,8 +20,9 @@ const App = () => {
       <Services />
       <FAQ />
       <Contact />
+      <Footer />
     </div>
   );
-};
+}
 
 export default App;

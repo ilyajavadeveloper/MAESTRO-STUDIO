@@ -1,59 +1,130 @@
+/* src/components/NavBar.css */
+
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 70px;
-    background-color: #000;
-    color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Логотип */
+.navbar__logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* Переключатель языков */
+.lang-switcher {
+  margin-left: 1rem;
+}
+
+/* Основное меню */
+.navbar__menu {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+.navbar__menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+.navbar__menu a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffdd57;
+}
+
+/* Кнопка «Записаться» */
+.navbar__cta {
+  background-color: #fff;
+  color: #000;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 2px solid #000;
+  margin-left: 1.5rem;
+  transition: background 0.3s, color 0.3s;
+}
+.navbar__cta:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Бургер (по умолчанию скрыт) */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.burger-line {
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  /* Показываем бургер */
+  .burger {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
-  
-  .navbar__logo {
-    font-size: 1.4rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    white-space: nowrap;
-  }
-  
-  .navbar__menu {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-  }
-  
-  .navbar__menu a {
-    color: #fff;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-    white-space: nowrap;
-  }
-  
-  .navbar__menu a:hover {
-    opacity: 0.7;
-  }
-  
+
+  /* Скрываем меню и CTA */
+  .navbar__menu,
   .navbar__cta {
-    background-color: #fff;
-    color: #000;
-    padding: 10px 24px;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 600;
-    border: 2px solid #000;
-    margin-left: 2rem;
-    margin-right: 2rem; /* 👈 Добавлено */
-    transition: all 0.3s ease;
+    display: none;
   }
-  
-  .navbar__cta:hover {
-    background-color: #000;
-    color: #fff;
+
+  /* Отображаем меню, когда открыто */
+  .navbar__menu.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    padding: 1rem 0;
+    gap: 0.5rem;
+    align-items: center;
   }
-  
+
+  /* Теперь показываем CTA как последний пункт в меню */
+  .navbar__menu.open + .navbar__cta {
+    display: block;
+    position: relative;
+    margin: 0;
+    margin-top: 1rem;
+  }
+
+  /* Пункты меню: сделаем их шириной 100% и центрированными */
+  .navbar__menu.open a {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 0;
+  }
+}

@@ -1,46 +1,80 @@
-,.faq {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    text-align: left;
-  }
-  
-  .faq h2 {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .faq-item {
-    padding: 20px;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    background-color: #f9f9f9;
-    transition: all 0.3s ease;
-    cursor: default;
-  }
-  
-  .faq-item:hover {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-    transform: translateY(-6px); /* 👈 вот оно — лёгкий подъём */
-  }
-  .faq-item strong {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #000;
-    margin-bottom: 8px;
-  }
-  
-  .faq-item p {
-    font-size: 0.95rem;
-    color: #444;
-    line-height: 1.5;
-  }
-  
+:root {
+  --clr-bg-start: #000;
+  --clr-bg-end: #222;
+  --clr-card-bg: #1a1a1a;
+  --clr-text-light: #eee;
+  --clr-text-secondary: #aaa;
+  --clr-accent: #fff;
+  --radius: 12px;
+  --gap: 1.5rem;
+}
+
+.faq {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, var(--clr-bg-start), var(--clr-bg-end));
+  color: var(--clr-text-light);
+}
+
+.faq__title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.faq__list {
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid;
+  gap: var(--gap);
+}
+
+.faq__item {
+  background: var(--clr-card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.faq__question {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--clr-accent);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.faq__question:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.faq__question-text {
+  display: flex;
+  align-items: center;
+}
+
+.faq__icon {
+  margin-right: 0.75rem;
+  font-size: 1.5rem;
+}
+
+.faq__chevron {
+  font-size: 1.5rem;
+}
+
+.faq__answer {
+  padding: 0 1.5rem 1rem;
+}
+
+.faq__answer p {
+  margin: 0;
+  color: var(--clr-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}

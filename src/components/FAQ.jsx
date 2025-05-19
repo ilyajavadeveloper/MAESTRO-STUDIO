@@ -1,32 +1,54 @@
-// src/components/FAQ.jsx
-import React from 'react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { IoHelpCircleOutline, IoChevronDown, IoChevronUp } from 'react-icons/io5';
+import { motion, AnimatePresence } from 'framer-motion';
 import './FAQ.css';
 
 const FAQ = () => {
+  const { t } = useTranslation();
+  const items = t('faq.items', { returnObjects: true });
+  const [openIndex, setOpenIndex] = useState(null);
+
   return (
     <section id="faq" className="faq">
-      <h2>Часто задаваемые вопросы / Frequently Asked Questions</h2>
-
-      <div className="faq-list">
-        <div className="faq-item">
-          <strong>Как записаться? / How to book?</strong>
-          <p>Обратитесь напрямую по номеру или WhatsApp: 052-438-8967</p>
-        </div>
-
-        <div className="faq-item">
-          <strong>Сколько стоит аренда студии? / What’s the studio rental price?</strong>
-          <p>Прайс-лист доступен в нашем Instagram.</p>
-        </div>
-
-        <div className="faq-item">
-          <strong>Можно прийти со своей командой? / Can I bring my own team?</strong>
-          <p>Конечно. Вы можете использовать как своё оборудование, так и наше.</p>
-        </div>
-
-        <div className="faq-item">
-          <strong>Где находится студия? / Where are you located?</strong>
-          <p>Мы находимся в Ашдоде, Sderot Yerushalayim 18, здание K-Towers, 4 этаж.</p>
-        </div>
+      <h2 className="faq__title">{t('faq.title')}</h2>
+      <div className="faq__list">
+        {items.map((item, idx) => (
+          <div className="faq__item" key={idx}>
+            <button
+              className="faq__question"
+              onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+              aria-expanded={openIndex === idx}
+            >
+              <div className="faq__question-text">
+                <IoHelpCircleOutline className="faq__icon" />
+                <span>{item.q}</span>
+              </div>
+              {openIndex === idx ? (
+                <IoChevronUp className="faq__chevron" />
+              ) : (
+                <IoChevronDown className="faq__chevron" />
+              )}
+            </button>
+            <AnimatePresence initial={false}>
+              {openIndex === idx && (
+                <motion.div
+                  className="faq__answer"
+                  initial="collapsed"
+                  animate="open"
+                  exit="collapsed"
+                  variants={{
+                    open: { height: 'auto', opacity: 1 },
+                    collapsed: { height: 0, opacity: 0 }
+                  }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                >
+                  <p>{item.a}</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        ))}
       </div>
     </section>
   );

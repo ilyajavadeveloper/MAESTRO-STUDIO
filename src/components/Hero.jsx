@@ -1,11 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import './Hero.css';
 import './FloatingWhatsapp.css';
 
-const title = "MAESTROSTUDIO";
+const container = {
+  visible: { transition: { staggerChildren: 0.05 } }
+};
+const child = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <motion.section
       id="hero"
@@ -14,11 +23,16 @@ const Hero = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <small className="hero__byline">by Maestro Prod.</small>
+      <small className="hero__byline">{t('hero.byline')}</small>
 
-      <motion.h1 className="hero__title" initial="hidden" animate="visible" variants={container}>
-        {title.split("").map((char, index) => (
-          <motion.span key={index} variants={child} className="letter">
+      <motion.h1
+        className="hero__title"
+        initial="hidden"
+        animate="visible"
+        variants={container}
+      >
+        {t('hero.title').split('').map((char, i) => (
+          <motion.span key={i} variants={child} className="letter">
             {char}
           </motion.span>
         ))}
@@ -30,15 +44,11 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8 }}
       >
-        Расположена на 4-м этаже K-Towers, Sderot Yerushalayim 18 — наша студия выполнена в минималистичном стиле, 
-        с профессиональным светом и звуком. Идеально для подкастов, рилсов, интервью и не только.
-        <br /><br />
-        Located on the 4th floor of K-Towers, 18 Sderot Yerushalayim — our studio features minimalist design 
-        and professional-grade lighting & sound. Perfect for podcasts, reels, interviews & more.
+        {t('hero.text')}
       </motion.p>
 
       <motion.a
-        href="https://wa.me/972524388967"
+        href={t('hero.ctaLink')}
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-button hero-cta"
@@ -48,35 +58,10 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6 }}
       >
-        📩 Записаться / Book Now
+        {t('hero.button')}
       </motion.a>
     </motion.section>
   );
 };
 
-// Анимация по буквам
-const container = {
-  visible: {
-    transition: {
-      staggerChildren: 0.05,
-    },
-  },
-};
-
-const child = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
 export default Hero;
-
-export const FloatingWhatsApp = () => (
-  <a
-    href="https://wa.me/972524388967"
-    className="floating-whatsapp"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    💬
-  </a>
-);

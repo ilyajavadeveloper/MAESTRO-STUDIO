@@ -1,6 +1,8 @@
 // src/components/WhatsAppButton.jsx
 import React from 'react';
-import './WhatsAppButton.css'; // Assuming you have a CSS file for styling
+import './WhatsAppButton.css';
+import { FaWhatsapp } from 'react-icons/fa';
+
 const WhatsAppButton = () => {
   return (
     <a
@@ -9,6 +11,7 @@ const WhatsAppButton = () => {
       rel="noopener noreferrer"
       className="whatsapp-button"
     >
+      <FaWhatsapp className="whatsapp-icon" />
       Связаться в WhatsApp
     </a>
   );

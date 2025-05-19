@@ -1,0 +1,218 @@
+{
+  "en": {
+    "navbar": {
+      "home": "Home",
+      "gallery": "Gallery",
+      "services": "Services",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "book": "Book Now"
+    },
+    "hero": {
+      "byline": "by Maestro Prod.",
+      "title": "MAESTROSTUDIO",
+      "text": "Located on the 4th floor of K-Towers, 18 Sderot Yerushalayim — our studio features minimalist design and professional-grade lighting & sound. Perfect for podcasts, reels, interviews & more.",
+      "button": "Book Now",
+      "ctaLink": "https://wa.me/9724388967"
+    },
+    "gallery": {
+      "title": "Our Work",
+      "altPrefix": "Work"
+    },
+    "services": {
+      "title": "Our Services",
+      "rental": {
+        "title": "Studio & Equipment Rental",
+        "features": {
+          "hourly": "Hourly studio rental",
+          "lights": "Lights, cameras, mics",
+          "setup": "Setup assistance"
+        }
+      },
+      "production": {
+        "title": "Full Production Services",
+        "features": {
+          "podcasts": "Podcasts (all inclusive)",
+          "social": "Social content (Reels, Shorts)",
+          "product": "Product & Portrait shoots"
+        }
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "How to book?",
+          "a": "Reach us via phone or WhatsApp: 052-438-8967"
+        },
+        {
+          "q": "What’s the studio rental price?",
+          "a": "Price list is available on our Instagram."
+        },
+        {
+          "q": "Can I bring my own team?",
+          "a": "Of course. You can use your own equipment or ours."
+        },
+        {
+          "q": "Where are you located?",
+          "a": "We are located in Ashdod, Sderot Yerushalayim 18, K-Towers, 4th Floor."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contacts",
+      "whatsappLabel": "WhatsApp",
+      "whatsappText": "052-438-8967",
+      "addressLabel": "Address",
+      "addressText": "Ashdod, Sderot Yerushalayim 18, K-Towers, 4th Floor",
+      "byline": "By Maestro Prod."
+    },
+    "footer": {
+      "text": "© 2025 MAESTROSTUDIO. All rights reserved."
+    }
+  },
+  "ru": {
+    "navbar": {
+      "home": "Главная",
+      "gallery": "Галерея",
+      "services": "Услуги",
+      "faq": "FAQ",
+      "contact": "Контакты",
+      "book": "Записаться"
+    },
+    "hero": {
+      "byline": "от Maestro Prod.",
+      "title": "MAESTROSTUDIO",
+      "text": "Расположена на 4-м этаже K-Towers, Sderot Yerushalayim 18 — наша студия выполнена в минималистичном стиле с профессиональным освещением и звуком. Идеально для подкастов, рилсов, интервью и не только.",
+      "button": "Записаться",
+      "ctaLink": "https://wa.me/9724388967"
+    },
+    "gallery": {
+      "title": "Наши работы",
+      "altPrefix": "Работа"
+    },
+    "services": {
+      "title": "Наши услуги",
+      "rental": {
+        "title": "Аренда студии и оборудования",
+        "features": {
+          "hourly": "Почасовая аренда студии",
+          "lights": "Аренда света, камер, микрофонов",
+          "setup": "Помощь с настройкой и подготовкой"
+        }
+      },
+      "production": {
+        "title": "Съёмка под ключ",
+        "features": {
+          "podcasts": "Подкасты (всё включено)",
+          "social": "Контент для соцсетей (Reels, Shorts)",
+          "product": "Предметная съёмка и портреты"
+        }
+      }
+    },
+    "faq": {
+      "title": "Часто задаваемые вопросы",
+      "items": [
+        {
+          "q": "Как записаться?",
+          "a": "Обратитесь напрямую по номеру или WhatsApp: 052-438-8967"
+        },
+        {
+          "q": "Сколько стоит аренда студии?",
+          "a": "Прайс-лист доступен в нашем Instagram."
+        },
+        {
+          "q": "Можно прийти со своей командой?",
+          "a": "Конечно. Вы можете использовать как своё оборудование, так и наше."
+        },
+        {
+          "q": "Где находится студия?",
+          "a": "Мы находимся в Ашдоде, Sderot Yerushalayim 18, здание K-Towers, 4 этаж."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Контакты",
+      "whatsappLabel": "WhatsApp",
+      "whatsappText": "052-438-8967",
+      "addressLabel": "Адрес",
+      "addressText": "Ашдод, Sderot Yerushalayim 18, здание K-Towers, 4 этаж",
+      "byline": "By Maestro Prod."
+    },
+    "footer": {
+      "text": "© 2025 MAESTROSTUDIO. Все права защищены."
+    }
+  },
+  "he": {
+    "navbar": {
+      "home": "בית",
+      "gallery": "גלריה",
+      "services": "שירותים",
+      "faq": "שאלות נפוצות",
+      "contact": "צור קשר",
+      "book": "להזמין"
+    },
+    "hero": {
+      "byline": "by Maestro Prod.",
+      "title": "MAESTROSTUDIO",
+      "text": "בקומה הרביעית של K-Towers, שדרות ירושלים 18 — הסטודיו שלנו מעוצב בסגנון מינימליסטי עם תאורה וסאונד מקצועיים. מושלם לפודקאסטים, רילס, ראיונות ועוד.",
+      "button": "להזמין",
+      "ctaLink": "https://wa.me/9724388967"
+    },
+    "gallery": {
+      "title": "העבודות שלנו",
+      "altPrefix": "עבודה"
+    },
+    "services": {
+      "title": "השירותים שלנו",
+      "rental": {
+        "title": "השכרת סטודיו וציוד",
+        "features": {
+          "hourly": "השכרה לפי שעה",
+          "lights": "השכרת תאורה, מצלמות, מיקרופונים",
+          "setup": "סיוע בהגדרה והכנה"
+        }
+      },
+      "production": {
+        "title": "שירותי הפקה מלאים",
+        "features": {
+          "podcasts": "פודקאסטים (הכול כלול)",
+          "social": "תוכן לרשתות (Reels, Shorts)",
+          "product": "צילום מוצרים ופורטרטים"
+        }
+      }
+    },
+    "faq": {
+      "title": "שאלות נפוצות",
+      "items": [
+        {
+          "q": "איך להזמין?",
+          "a": "פנו אלינו ישירות בטלפון או WhatsApp: 052-438-8967"
+        },
+        {
+          "q": "מהי עלות השכרת הסטודיו?",
+          "a": "מחירון זמין באינסטגרם שלנו."
+        },
+        {
+          "q": "אפשר להגיע עם הצוות שלי?",
+          "a": "בהחלט. ניתן להשתמש בציוד שלכם או שלנו."
+        },
+        {
+          "q": "איפה הסטודיו ממוקם?",
+          "a": "אשדוד, שדרות ירושלים 18, מבנה K-Towers, קומה 4."
+        }
+      ]
+    },
+    "contact": {
+      "title": "צור קשר",
+      "whatsappLabel": "WhatsApp",
+      "whatsappText": "052-438-8967",
+      "addressLabel": "כתובת",
+      "addressText": "אשדוד, שדרות ירושלים 18, מבנה K-Towers, קומה 4",
+      "byline": "מאסטרו פרוד"
+    },
+    "footer": {
+      "text": "© 2025 MAESTROSTUDIO. כל הזכויות שמורות."
+    }
+  }
+}

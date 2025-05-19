@@ -1,30 +1,40 @@
-// src/components/Services.jsx
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { IoBuildOutline, IoVideocamOutline } from 'react-icons/io5';
+import { motion } from 'framer-motion';
 import './Services.css';
 
 const Services = () => {
+  const { t } = useTranslation();
+  const rental = t('services.rental', { returnObjects: true });
+  const production = t('services.production', { returnObjects: true });
+
   return (
     <section id="services" className="services">
-      <h2>Наши услуги / Our Services</h2>
-
-      <div className="services-grid">
-        <div className="service-card">
-          <h3>Аренда студии и оборудования / Studio & Equipment Rental</h3>
-          <ul>
-            <li>Почасовая аренда студии / Hourly studio rental</li>
-            <li>Аренда света, камер, микрофонов / Lights, cameras, mics</li>
-            <li>Помощь с настройкой и подготовкой / Setup assistance</li>
-          </ul>
-        </div>
-
-        <div className="service-card">
-          <h3>Съёмка под ключ / Full Production Services</h3>
-          <ul>
-            <li>Подкасты / Podcasts (всё включено)</li>
-            <li>Контент для соцсетей / Social content (Reels, Shorts)</li>
-            <li>Предметная съёмка и портреты / Product & Portrait shoots</li>
-          </ul>
-        </div>
+      <h2 className="services__title">{t('services.title')}</h2>
+      <div className="services__grid">
+        {[rental, production].map((svc, i) => (
+          <motion.div
+            className="services__card"
+            key={i}
+            whileHover={{ y: -6, boxShadow: '0 12px 24px rgba(0,0,0,0.08)' }}
+            transition={{ type: 'spring', stiffness: 300 }}
+          >
+            <div className="services__header">
+              {i === 0 ? (
+                <IoBuildOutline className="services__icon" />
+              ) : (
+                <IoVideocamOutline className="services__icon" />
+              )}
+              <h3 className="services__card-title">{svc.title}</h3>
+            </div>
+            <ul className="services__list">
+              {Object.values(svc.features).map((feat, idx) => (
+                <li key={idx}>{feat}</li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
