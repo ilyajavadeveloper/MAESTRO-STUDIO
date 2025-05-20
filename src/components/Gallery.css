@@ -1,46 +1,68 @@
-..gallery {
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .gallery h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
-  
+/* src/components/Gallery.css */
+.gallery {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Мобильная карусель */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel-item {
+  flex: 0 0 auto;
+  width: 280px;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.carousel-item:hover {
+  transform: scale(1.03);
+}
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Grid от планшета */
+@media (min-width: 768px) {
   .carousel {
-    display: flex;
-    overflow-x: auto;
+    display: grid;
+    overflow: visible;
     gap: 16px;
-    padding-bottom: 10px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    padding-bottom: 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
-  
-  .carousel::-webkit-scrollbar {
-    display: none;
-  }
-  
   .carousel-item {
-    flex: 0 0 auto;
-    width: 280px;
-    height: 180px;
-    background: #eee;
-    border-radius: 12px;
-    overflow: hidden;
-    scroll-snap-align: start;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
-  
-  .carousel-item:hover {
-    transform: scale(1.03);
-  }
-  
-  .carousel-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    aspect-ratio: 16/9;
   }
-  
+}
+
+/* Четыре колонки на широких экранах */
+@media (min-width: 1024px) {
+  .carousel {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .carousel-item {
+    aspect-ratio: 4/3;
+  }
+}
