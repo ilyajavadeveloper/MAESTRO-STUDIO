@@ -1,12 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { FaWhatsapp } from 'react-icons/fa';
 import './Hero.css';
 import './FloatingWhatsapp.css';
 
 const container = {
   visible: { transition: { staggerChildren: 0.05 } }
 };
+
 const child = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 }
@@ -47,19 +49,22 @@ const Hero = () => {
         {t('hero.text')}
       </motion.p>
 
-      <motion.a
-        href={t('hero.ctaLink')}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whatsapp-button hero-cta"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6 }}
-      >
-        {t('hero.button')}
-      </motion.a>
+      <div className="hero__cta-wrapper">
+        <motion.a
+          href={t('hero.ctaLink')}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="whatsapp-button hero-cta"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.6 }}
+        >
+          <FaWhatsapp className="whatsapp-icon" />
+          {t('hero.button')}
+        </motion.a>
+      </div>
     </motion.section>
   );
 };
