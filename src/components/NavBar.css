@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-=======
 /* src/components/NavBar.css */
->>>>>>> d247d27394531c18b26a90f714dedf3b00ed5559
+
 .navbar {
   position: fixed;
   top: 0;
@@ -31,7 +29,7 @@
   white-space: nowrap;
 }
 
-<<<<<<< HEAD
+/* Кнопка "Записаться" */
 .navbar__cta {
   background: linear-gradient(135deg, #25D366, #128C7E);
   color: #fff;
@@ -41,7 +39,7 @@
   font-weight: 700;
   border: none;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
   white-space: nowrap;
 }
 
@@ -50,7 +48,7 @@
   transform: scale(1.05);
 }
 
-/* Кнопка "Записаться" только на десктопе */
+/* Показываем кнопку только на десктопе */
 .navbar__cta--desktop {
   display: inline-block;
 }
@@ -61,9 +59,7 @@
   }
 }
 
-=======
->>>>>>> d247d27394531c18b26a90f714dedf3b00ed5559
-/* переключатели языков */
+/* Переключатели языков */
 .lang-desktop {
   display: block;
 }
@@ -71,9 +67,9 @@
   display: none;
 }
 
-/* бургер */
+/* Бургер-меню */
 .burger {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 4px;
   background: none;
@@ -86,10 +82,10 @@
   width: 24px;
   height: 2px;
   background-color: #fff;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* меню */
+/* Меню */
 .navbar__menu-wrapper {
   display: none;
 }
@@ -124,7 +120,7 @@
   color: #25D366;
 }
 
-/* адаптив */
+/* Адаптив для десктопа */
 @media (min-width: 769px) {
   .burger {
     display: none;
@@ -151,22 +147,20 @@
   .lang-mobile {
     display: none;
   }
-
   .lang-desktop {
     display: block;
   }
 }
 
+/* Адаптив для мобильных */
 @media (max-width: 768px) {
   .lang-desktop {
     display: none;
   }
-
   .lang-mobile {
     display: block;
     margin-top: 1rem;
   }
-
   .lang-mobile select {
     font-size: 1rem;
     padding: 6px 12px;
@@ -175,6 +169,7 @@
   }
 }
 
+/* Предотвращаем горизонтальный скролл */
 html {
   overflow-x: hidden;
 }

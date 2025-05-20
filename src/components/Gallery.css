@@ -1,109 +1,60 @@
 /* src/components/Gallery.css */
 .gallery {
-<<<<<<< HEAD
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-  padding: 0 20px;
+  padding: 20px;
 }
 
 .gallery h2 {
   font-size: 2rem;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
 }
 
-/* Мобильная карусель */
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 16px;
-  padding-bottom: 10px;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-.carousel-item {
-  flex: 0 0 auto;
-  width: 280px;
-  height: 180px;
-  border-radius: 12px;
-  overflow: hidden;
-  scroll-snap-align: start;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-.carousel-item:hover {
-  transform: scale(1.03);
-}
-.carousel-item img {
-=======
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.gallery h2 {
-  font-size: 2.2rem;
-  margin-bottom: 24px;
-}
-
+/* Мобильная версия: вертикальная колонка */
 .grid {
-  display: grid;
-  gap: 24px;
-  justify-items: center;
-  /* от 1 колонки на узких до 4 колонок на широких экранах */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .grid-item {
   width: 100%;
-  /* чтобы на широких экранах не растягивалось сверх меры */
-  max-width: 400px;
   aspect-ratio: 16/9;
-  overflow: hidden;
   border-radius: 12px;
+  overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
 .grid-item:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .grid-item img {
->>>>>>> d247d27394531c18b26a90f714dedf3b00ed5559
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-<<<<<<< HEAD
 
-/* Grid от планшета */
+/* Сетка на планшетах и выше */
 @media (min-width: 768px) {
-  .carousel {
+  .grid {
     display: grid;
-    overflow: visible;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 16px;
-    padding-bottom: 0;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    margin: 0 auto;
   }
-  .carousel-item {
-    width: 100%;
-    aspect-ratio: 16/9;
-  }
-}
-
-/* Четыре колонки на широких экранах */
-@media (min-width: 1024px) {
-  .carousel {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .carousel-item {
+  .grid-item {
+    width: auto;
     aspect-ratio: 4/3;
   }
 }
-=======
->>>>>>> d247d27394531c18b26a90f714dedf3b00ed5559
+
+/* Фиксированная сетка на больших экранах */
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -8,12 +8,11 @@ import img2 from '../assets/gallery-2.png';
 import img3 from '../assets/gallery-3.png';
 import img4 from '../assets/gallery-4.png';
 import img5 from '../assets/gallery-5.png';
-<<<<<<< HEAD
-=======
+
 import img6 from '../assets/gallery-6.png';
 import img7 from '../assets/gallery-7.png';
 import img8 from '../assets/gallery-8.png';
->>>>>>> d247d27394531c18b26a90f714dedf3b00ed5559
+
 
 const images = [img1, img2, img3, img4,img5,img6,img7,img8];
 
