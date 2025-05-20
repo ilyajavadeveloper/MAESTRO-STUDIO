@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+/* src/components/NavBar.css */
+>>>>>>> d247d27394531c18b26a90f714dedf3b00ed5559
 .navbar {
   position: fixed;
   top: 0;
@@ -27,6 +31,7 @@
   white-space: nowrap;
 }
 
+<<<<<<< HEAD
 .navbar__cta {
   background: linear-gradient(135deg, #25D366, #128C7E);
   color: #fff;
@@ -56,6 +61,8 @@
   }
 }
 
+=======
+>>>>>>> d247d27394531c18b26a90f714dedf3b00ed5559
 /* переключатели языков */
 .lang-desktop {
   display: block;

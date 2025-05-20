@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// src/components/Navbar.jsx
+>>>>>>> d247d27394531c18b26a90f714dedf3b00ed5559
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
@@ -16,6 +20,7 @@ const Navbar = () => {
     <header className="navbar">
       <div className="navbar__left">
         <div className="navbar__logo">MAESTROSTUDIO</div>
+<<<<<<< HEAD
 
         {/* Кнопка видна только на десктопе */}
         <a href="https://wa.me/972524388967" className="navbar__cta navbar__cta--desktop">
@@ -23,6 +28,10 @@ const Navbar = () => {
         </a>
       </div>
 
+=======
+      </div>
+
+>>>>>>> d247d27394531c18b26a90f714dedf3b00ed5559
       <div className="lang-desktop">
         <LanguageSwitcher />
       </div>
