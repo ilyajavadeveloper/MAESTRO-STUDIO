@@ -113,14 +113,13 @@ const Navbar = () => {
           >
             {t('navbar.contact')}
           </Link>
-
-          {/* НОВАЯ ССЫЛКА MAESTROWEB В МОБИЛЬНОМ МЕНЮ */}
+          {/* НОВАЯ ССЫЛКА MAESTROWEB В МОБИЛЬНОМ МЕНЮ - ПЕРЕМЕЩЕНА */}
           <a
             href="https://maestro-web-nine.vercel.app/" // Ссылка на твой проект MAESTRO-WEB
             target="_blank"
             rel="noreferrer"
             onClick={() => setMenuOpen(false)}
-            className="navbar__maestroweb-btn navbar__maestroweb-btn--mobile" // Добавляем класс для мобильной версии
+            className="navbar__maestroweb-link--mobile" // Изменен класс для стилизации как обычной ссылки
           >
             {t('navbar.maestroweb')}
           </a>

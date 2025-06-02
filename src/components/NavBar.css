@@ -1,4 +1,3 @@
-
 /* ========= Глобальные переменные (тёмная тема) ========= */
 :root {
   --clr-bg-dark: #000; /* чисто чёрный фон */
@@ -10,6 +9,24 @@
   --transition-speed: 0.3s; /* Базовая скорость перехода */
   --shadow-dark: 0 4px 15px rgba(0, 0, 0, 0.4); /* Тень для навбара */
   --shadow-accent: 0 0 15px rgba(0, 210, 255, 0.6); /* Свечение акцента */
+}
+
+/* === ГЛОБАЛЬНЫЕ ПРАВИЛА ДЛЯ СБРОСА И ПРЕДОТВРАЩЕНИЯ ПОЛОС === */
+* {
+  box-sizing: border-box; /* Это очень важно для правильной работы ширины и padding */
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Скрывает горизонтальную прокрутку */
+  background-color: var(--clr-bg-dark); /* Устанавливаем черный фон по умолчанию */
+}
+
+/* Применение черного фона ко всем секциям, если они не имеют своего цвета */
+/* Тебе может понадобиться настроить это правило под свои конкретные секции */
+section, main {
+  background-color: var(--clr-bg-dark);
 }
 
 /* Основной контейнер Navbar */
@@ -272,9 +289,29 @@
   outline: none;
 }
 
-/* НОВАЯ ССЫЛКА MAESTROWEB (мобильная) */
-.navbar__maestroweb-btn--mobile {
+/* НОВАЯ ССЫЛКА MAESTROWEB (мобильная) - ТЕПЕРЬ КАК ОБЫЧНАЯ ССЫЛКА МЕНЮ */
+.navbar__maestroweb-link--mobile { /* Изменен класс */
   display: none; /* Скрыто по умолчанию, показываем только на мобильных */
+  /* Стилизация как обычная ссылка меню */
+  color: var(--clr-text-light);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1.3rem; /* Сохраняем размер как у других ссылок меню */
+  /* Уберем лишние отступы, чтобы она была как обычная ссылка меню */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.navbar__maestroweb-link--mobile:hover {
+  background-color: rgba(0, 210, 255, 0.15);
+  color: var(--clr-accent);
 }
 
 /* Переключатель языка для мобильного меню */
@@ -326,7 +363,7 @@
   /* Скрываем мобильные элементы */
   .lang-mobile,
   .navbar__cta--mobile,
-  .navbar__maestroweb-btn--mobile {
+  .navbar__maestroweb-link--mobile { /* Изменен класс */
     display: none !important;
   }
 
@@ -367,18 +404,134 @@
     height: calc(100vh - 60px);
   }
 
-  /* Показываем новую кнопку MAESTROWEB в мобильном меню */
-  .navbar__maestroweb-btn--mobile {
-    display: inline-flex;
-    margin-top: var(--gap);
-    margin-bottom: var(--gap);
-    /* УЛУЧШЕНИЕ: Увеличенный размер шрифта для кнопки MAESTROWEB на мобильных */
-    font-size: 1.1rem; /* Было 0.95rem (наследуется от десктопной) */
-    padding: 12px 25px; /* Увеличим padding для лучшего таргет-зоны */
+  /* Показываем новую кнопку MAESTROWEB в мобильном меню как обычную ссылку */
+  .navbar__maestroweb-link--mobile { /* Изменен класс */
+    display: inline-flex; /* Используем flex для центрирования, если нужно */
+    /* Убрал лишние отступы, теперь она ведет себя как обычная ссылка меню */
   }
 }
 
-/* Предотвращаем горизонтальный скролл */
-html {
-  overflow-x: hidden;
+/* === БАЗОВЫЕ RTL ПРАВИЛА === */
+/* Эти правила применяются, когда <html dir="rtl"> активен */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right; /* По умолчанию весь текст выравнивается по правому краю */
+}
+
+/* === АДАПТАЦИЯ ШРИФТОВ ДЛЯ RTL (ИВРИТ) - УВЕЛИЧЕНИЕ РАЗМЕРА === */
+/* Импортируй ивритские шрифты, которые ты выберешь на Google Fonts
+    (например, Rubik, Assistant, Open Sans Hebrew).
+    Убедись, что они импортированы в начале файла! */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap');
+/* Добавь также импорты для других шрифтов, которые ты используешь в проекте,
+    если они поддерживают иврит. */
+
+/* Общий размер текста для всего тела сайта на иврите */
+[dir="rtl"] body {
+  font-family: 'Rubik', 'Assistant', sans-serif; /* Ивритские шрифты первыми */
+  font-size: 1.15rem; /* Увеличь базовый размер шрифта, например, на 15% */
+  line-height: 1.8; /* Возможно, увеличить межстрочный интервал для лучшей читаемости */
+}
+
+/* Заголовки: Hero Title, Services Title, FAQ Title, Contact Title, Gallery Title */
+[dir="rtl"] .hero-title,
+[dir="rtl"] .services-title,
+[dir="rtl"] .faq-title,
+[dir="rtl"] .contact-title,
+[dir="rtl"] .gallery-title { /* Убедись, что классы правильные */
+  font-size: clamp(3rem, 7.5vw, 5.5rem); /* Увеличил базовые значения для более крупного заголовка */
+  letter-spacing: 0.03em; /* Может быть, чуть уменьшить межбуквенный интервал, если кажется слишком растянутым */
+}
+
+/* Подзаголовки и основной текст */
+[dir="rtl"] .hero-text,
+[dir="rtl"] .services-rental-features li, /* Или конкретный класс для текста фич */
+[dir="rtl"] .services-production-features li,
+[dir="rtl"] .faq-item .answer, /* Или .faq-item p */
+[dir="rtl"] .contact-text, /* Если у контакта есть общий текстовый класс */
+[dir="rtl"] .footer-text { /* Текст в футере */
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem); /* Увеличил базовый размер */
+  line-height: 1.7;
+}
+
+/* Навигация */
+[dir="rtl"] .navbar-links a {
+  font-size: 1.1rem; /* Увеличить размер ссылок в навигации */
+  /* Возможно, нужно поменять margin-left на margin-right для отступов между ссылками */
+  margin-left: 0;
+  margin-right: 20px; /* Пример, если ссылки были с margin-left */
+}
+[dir="rtl"] .navbar-links {
+  display: flex;
+  flex-direction: row-reverse; /* Если ссылки выстроены в ряд */
+}
+[dir="rtl"] .navbar-logo {
+  margin-right: auto; /* Лого слева в LTR, справа в RTL */
+  margin-left: 0;
+}
+[dir="rtl"] .navbar-book-btn {
+  margin-left: 0;
+  margin-right: 15px; /* Если кнопка справа от навигации */
+}
+
+
+/* Текст в кнопках */
+[dir="rtl"] .hero-button, /* Или .hero button */
+[dir="rtl"] .contact-button { /* Или .contact button */
+  font-size: 1.2rem; /* Увеличить размер текста в кнопках */
+  padding: 1.2rem 3rem; /* Возможно, потребуется увеличить padding кнопок */
+}
+
+/* FAQ: стрелка должна быть слева от текста вопроса */
+[dir="rtl"] .faq-item .question { /* Замени .question на реальный класс элемента вопроса */
+  flex-direction: row-reverse; /* Меняем порядок элементов внутри flex-контейнера */
+  text-align: right; /* Текст вопроса справа */
+  font-size: clamp(1.1rem, 2.8vw, 1.35rem); /* Увеличить размер вопроса */
+}
+[dir="rtl"] .faq-item .question svg,
+[dir="rtl"] .faq-item .question i { /* Если иконка */
+  margin-left: 0; /* Убираем отступ слева */
+  margin-right: 15px; /* Добавляем отступ справа, чтобы иконка была справа от текста */
+}
+
+/* Секция Услуг: заголовки и текст */
+[dir="rtl"] .services-rental-title, /* И другие service-X-title */
+[dir="rtl"] .services-production-title {
+    font-size: clamp(1.3rem, 3vw, 1.6rem); /* Увеличить размер заголовков сервисов */
+}
+
+/* Футер */
+[dir="rtl"] .footer-text {
+    text-align: right; /* Текст копирайта */
+}
+/* Если в футере колонки, возможно нужно менять их порядок или выравнивание */
+[dir="rtl"] .footer-column { /* Пример */
+    text-align: right;
+}
+[dir="rtl"] .footer-socials { /* Если есть соц. иконки */
+    justify-content: flex-end; /* Выровнять по правому краю */
+}
+[dir="rtl"] .footer-socials a {
+    margin-left: 10px; /* Отступ между иконками */
+    margin-right: 0;
+}
+
+
+/* AccessibilityMenu */
+[dir="rtl"] .accessibility-menu { /* Основной контейнер меню */
+    right: 0; /* Если изначально был слева */
+    left: auto;
+    transform-origin: top right; /* Изменить точку трансформации */
+}
+[dir="rtl"] .accessibility-menu-toggle-button { /* Кнопка переключения */
+    /* Возможно, нужно поменять position/margin */
+}
+[dir="rtl"] .accessibility-menu-option { /* Пункты меню */
+    text-align: right;
+    flex-direction: row-reverse; /* Если есть иконки и текст */
+}
+[dir="rtl"] .accessibility-menu-option svg { /* Иконки в меню */
+    margin-left: 0;
+    margin-right: 10px;
 }
