@@ -1,4 +1,3 @@
-// src/components/Hero.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -10,14 +9,13 @@ import './FloatingWhatsapp.css';
 export default function Hero() {
   const { t } = useTranslation();
 
-  // Варианты анимации для появления букв:
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.12,    // увеличили время между буквами
-        delayChildren: 0.6,       // задержка перед стартом буквенной анимации
+        staggerChildren: 0.12,
+        delayChildren: 0.6,
       }
     }
   };
@@ -38,9 +36,8 @@ export default function Hero() {
   };
 
   return (
-    <section className="hero-wrapper">
-      {/* Плавающая кнопка WhatsApp */}
-  
+    // Применяем черный фон к hero-wrapper
+    <section className="hero-wrapper" style={{ backgroundColor: '#000' }}>
       {/* Языковой переключатель (правый верхний угол) */}
       <div className="language-container">
         <LanguageSwitcher />
