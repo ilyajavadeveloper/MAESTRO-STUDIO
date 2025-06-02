@@ -1,124 +1,289 @@
-/* src/components/NavBar.css */
 
+/* ========= Глобальные переменные (тёмная тема) ========= */
+:root {
+  --clr-bg-dark: #000; /* чисто чёрный фон */
+  --clr-text-light: #fff; /* белый текст */
+  --clr-accent: #00d2ff; /* голубой акцент */
+  --clr-accent-dark: #00a0e6; /* более тёмный голубой */
+  --radius: 8px; /* более мягкое скругление для кнопок */
+  --gap: 1.5rem; /* увеличенный отступ */
+  --transition-speed: 0.3s; /* Базовая скорость перехода */
+  --shadow-dark: 0 4px 15px rgba(0, 0, 0, 0.4); /* Тень для навбара */
+  --shadow-accent: 0 0 15px rgba(0, 210, 255, 0.6); /* Свечение акцента */
+}
+
+/* Основной контейнер Navbar */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 70px;
-  background-color: #000;
-  color: #fff;
+  height: 80px; /* Увеличена высота для лучшего вида */
+  background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+  backdrop-filter: blur(10px); /* Эффект "стекла" */
+  color: var(--clr-text-light);
+  z-index: 1000;
+  box-shadow: var(--shadow-dark); /* Более выраженная тень */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Чуть более заметная нижняя граница */
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 1.5rem;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  padding: 0; /* Убрал padding отсюда, он теперь на .navbar-container */
   box-sizing: border-box;
 }
 
+/* Контейнер для содержимого навбара, управляет расположением элементов */
+.navbar-container {
+  max-width: 1200px; /* Максимальная ширина содержимого */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem; /* Горизонтальный padding */
+  display: flex;
+  justify-content: space-between; /* Распределяет элементы по краям */
+  align-items: center;
+}
+
+/* Левая часть: логотип и кнопка «Book Now» */
 .navbar__left {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--gap);
 }
 
+/* Логотип */
 .navbar__logo {
-  font-size: 1.4rem;
+  font-family: 'Anton', sans-serif;
+  /* УЛУЧШЕНИЕ: Увеличенный размер шрифта для логотипа */
+  font-size: 2.2rem; /* Было 1.8rem */
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  color: var(--clr-text-light);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6),
+               0 0 20px rgba(0, 210, 255, 0.4);
   white-space: nowrap;
+  cursor: pointer;
+  transition: text-shadow var(--transition-speed) ease-out, color var(--transition-speed) ease-out;
+}
+.navbar__logo:hover {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8),
+               0 0 25px rgba(0, 210, 255, 0.6);
 }
 
-/* Кнопка "Записаться" */
+/* Текстовая кнопка «Записаться» (CTA) */
 .navbar__cta {
-  background: linear-gradient(135deg, #25D366, #128C7E);
-  color: #fff;
-  padding: 10px 26px;
-  border-radius: 40px;
-  font-size: 1rem;
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 12px 25px;
+  /* УЛУЧШЕНИЕ: Чуть увеличенный размер шрифта для кнопки CTA */
+  font-size: 1.05rem; /* Было 1rem */
+  font-weight: 600;
+  background: var(--clr-accent);
+  color: var(--clr-bg-dark);
   border: none;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease, background 0.3s ease;
-  white-space: nowrap;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 15px rgba(0, 210, 255, 0.4);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
 }
-
 .navbar__cta:hover {
-  background: linear-gradient(135deg, #128C7E, #25D366);
-  transform: scale(1.05);
+  background-color: var(--clr-accent-dark);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 210, 255, 0.8);
+  cursor: pointer;
+}
+.navbar__cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-20deg);
+    transition: all 0.5s ease;
+}
+.navbar__cta:hover::before {
+    left: 100%;
 }
 
-/* Показываем кнопку только на десктопе */
+.navbar__cta-icon {
+    font-size: 1.2em;
+}
+
 .navbar__cta--desktop {
-  display: inline-block;
+  display: inline-flex;
 }
-
-@media (max-width: 768px) {
-  .navbar__cta--desktop {
+.navbar__cta--mobile {
     display: none;
-  }
 }
 
-/* Переключатели языков */
-.lang-desktop {
-  display: block;
+/* НОВЫЙ КОНТЕЙНЕР ДЛЯ ПРАВОЙ ЧАСТИ НАВБАРА НА ДЕСКТОПЕ */
+.navbar__right-desktop {
+  display: flex; /* Используем flexbox для элементов внутри */
+  align-items: center;
+  gap: var(--gap); /* Отступ между ссылкой MAESTROWEB и переключателем языка */
 }
-.lang-mobile {
+
+/* НОВАЯ ССЫЛКА MAESTROWEB (десктоп) - СТИЛЬ "МОЩНОЙ" КНОПКИ */
+.navbar__maestroweb-btn {
+  font-family: 'Inter', sans-serif;
+  /* УЛУЧШЕНИЕ: Увеличенный размер шрифта и жирность для кнопки MAESTROWEB */
+  font-size: 1.05rem; /* Было 0.95rem */
+  font-weight: 700; /* Осталось 700, но теперь более заметно */
+  text-transform: uppercase;
+  padding: 10px 20px; /* Стандартный padding кнопки */
+  background: linear-gradient(45deg, var(--clr-accent), var(--clr-accent-dark));
+  color: var(--clr-bg-dark); /* Темный текст на ярком фоне */
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: 0 0 15px var(--clr-accent), 0 0 25px rgba(0, 210, 255, 0.4);
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; /* Чтобы эффекты были поверх */
+}
+
+.navbar__maestroweb-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 25px var(--clr-accent), 0 0 40px rgba(0, 210, 255, 0.6);
+  background: linear-gradient(45deg, var(--clr-accent-dark), var(--clr-accent));
+}
+
+/* Дополнительный эффект свечения под кнопкой */
+.navbar__maestroweb-btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--clr-accent), var(--clr-accent-dark));
+    z-index: -1; /* Под кнопкой */
+    filter: blur(5px);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.navbar__maestroweb-btn:hover::before {
+    opacity: 1;
+}
+
+/* Переключатель языка для десктопа - теперь находится внутри navbar__right-desktop */
+.lang-desktop {
   display: none;
 }
 
-/* Бургер-меню */
+/* Бургер-меню (кнопка) */
 .burger {
-  display: flex;
+  display: none; /* Скрыт по умолчанию на десктопе */
   flex-direction: column;
-  gap: 4px;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
-  margin-right: 10px;
-}
-.burger-line {
-  width: 24px;
-  height: 2px;
-  background-color: #fff;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  padding: 0;
+  position: relative;
+  z-index: 1001;
 }
 
-/* Меню */
-.navbar__menu-wrapper {
-  display: none;
+.burger-line {
+  width: 100%;
+  height: 3px;
+  background: var(--clr-text-light);
+  border-radius: 2px;
+  transition: all var(--transition-speed) ease-in-out;
 }
-.navbar__menu-wrapper.open {
-  display: block;
-  position: absolute;
-  top: 70px;
+
+/* Анимация бургера */
+.burger.open .burger-line:nth-child(1) {
+  transform: translateY(9.5px) rotate(45deg);
+}
+.burger.open .burger-line:nth-child(2) {
+  opacity: 0;
+}
+.burger.open .burger-line:nth-child(3) {
+  transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* Выпадающее меню (мобильное) */
+.navbar__menu-wrapper {
+  display: none; /* Скрыто по умолчанию на десктопе */
+  position: fixed;
+  top: 80px; /* Смещаем вниз на высоту навбара */
   left: 0;
   width: 100%;
-  background: #000;
-  padding: 1rem 0;
+  height: calc(100vh - 80px); /* Занимает оставшуюся высоту */
+  background: rgba(0, 0, 0, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-100%);
+  transition: transform var(--transition-speed) ease-in-out;
+  overflow-y: auto;
   z-index: 999;
 }
+.navbar__menu-wrapper.open {
+  display: flex; /* Показываем меню (используем flex для центрирования) */
+  transform: translateX(0);
+}
+
 .navbar__menu {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--gap);
+  padding: 2rem 0;
+  width: 100%;
+  max-width: 300px;
 }
 .navbar__menu a {
-  color: #fff;
+  color: var(--clr-text-light);
   text-decoration: none;
-  font-weight: 500;
-  padding: 0.75rem 1rem;
-  border-radius: 6px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  width: 100%;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  width: 80%;
+  max-width: 300px;
   text-align: center;
+  cursor: pointer;
+  /* УЛУЧШЕНИЕ: Увеличенный размер шрифта для ссылок мобильного меню */
+  font-size: 1.3rem; /* Было 1.1rem */
 }
 .navbar__menu a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #25D366;
+  background-color: rgba(0, 210, 255, 0.15);
+  color: var(--clr-accent);
 }
+
+/* Убираем подчеркивание при наведении (чтобы курсор не превращался в текстовый) */
+.navbar__menu a:focus,
+.navbar__menu a:hover,
+.navbar__menu a:active {
+  text-decoration: none;
+  outline: none;
+}
+
+/* НОВАЯ ССЫЛКА MAESTROWEB (мобильная) */
+.navbar__maestroweb-btn--mobile {
+  display: none; /* Скрыто по умолчанию, показываем только на мобильных */
+}
+
+/* Переключатель языка для мобильного меню */
+.lang-mobile {
+  display: block; /* Показываем на мобильных */
+  margin-top: var(--gap); /* Отступ сверху */
+  text-align: center;
+}
+
 
 /* Адаптив для десктопа */
 @media (min-width: 769px) {
@@ -131,41 +296,85 @@
     position: static;
     background: none;
     padding: 0;
+    height: auto;
+    transform: translateX(0);
+    border-top: none;
+    overflow-y: visible;
+    z-index: auto;
   }
 
   .navbar__menu {
     flex-direction: row;
-    gap: 1rem;
+    gap: var(--gap);
+    padding: 0;
   }
 
   .navbar__menu a {
     width: auto;
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 1rem;
     text-align: left;
+    /* УЛУЧШЕНИЕ: Увеличенный размер шрифта для ссылок десктопного меню */
+    font-size: 1.1rem; /* Было 1rem */
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .navbar__menu a:hover {
+    background: none;
   }
 
-  .lang-mobile {
-    display: none;
+  /* Скрываем мобильные элементы */
+  .lang-mobile,
+  .navbar__cta--mobile,
+  .navbar__maestroweb-btn--mobile {
+    display: none !important;
   }
-  .lang-desktop {
-    display: block;
+
+  /* Показываем десктопные элементы */
+  .navbar__cta--desktop {
+    display: inline-flex;
+  }
+  .navbar__right-desktop {
+    display: flex;
   }
 }
 
-/* Адаптив для мобильных */
+/* Адаптив для мобильных (max-width: 768px) */
 @media (max-width: 768px) {
-  .lang-desktop {
-    display: none;
+  .navbar {
+    height: 60px;
+    padding: 0 1rem;
   }
-  .lang-mobile {
-    display: block;
-    margin-top: 1rem;
+  .navbar__logo {
+    /* УЛУЧШЕНИЕ: Увеличенный размер шрифта для логотипа на мобильных */
+    font-size: 1.8rem; /* Было 1.5rem */
   }
-  .lang-mobile select {
-    font-size: 1rem;
-    padding: 6px 12px;
-    border-radius: 6px;
-    border: none;
+
+  /* Скрываем десктопные элементы */
+  .navbar__cta--desktop,
+  .navbar__right-desktop {
+    display: none !important;
+  }
+
+  /* Показываем бургер */
+  .burger {
+    display: flex;
+  }
+
+  /* Корректируем смещение меню под навбар на мобильных */
+  .navbar__menu-wrapper {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+
+  /* Показываем новую кнопку MAESTROWEB в мобильном меню */
+  .navbar__maestroweb-btn--mobile {
+    display: inline-flex;
+    margin-top: var(--gap);
+    margin-bottom: var(--gap);
+    /* УЛУЧШЕНИЕ: Увеличенный размер шрифта для кнопки MAESTROWEB на мобильных */
+    font-size: 1.1rem; /* Было 0.95rem (наследуется от десктопной) */
+    padding: 12px 25px; /* Увеличим padding для лучшего таргет-зоны */
   }
 }
 

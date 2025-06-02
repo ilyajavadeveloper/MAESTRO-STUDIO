@@ -1,85 +1,160 @@
-.hero {
+/* src/components/Hero.css */
+
+/* Общие переменные */
+:root {
+  --clr-bg-dark:          #000;          /* чёрный фон */
+  --clr-bg-dark-alt:      #111;          /* чуть светлее чёрного */
+  --clr-text-primary:     #fff;          /* основной текст — белый */
+  --clr-text-secondary:   #ccc;          /* второстепенный текст — светло-серый */
+  --clr-accent:           #00d2ff;       /* Голубой акцент (как в Navbar) */
+  --clr-accent-dark:      #00a0e6;       /* Более тёмный голубой (как в Navbar) */
+  --gap:                  1.5rem;        /* Увеличенный отступ */
+  --radius-btn:           50px;          /* Очень скругленная кнопка */
+  --shadow-light:         0 8px 25px rgba(0, 210, 255, 0.4); /* Тень от акцента */
+  --shadow-light-hover:   0 12px 30px rgba(0, 210, 255, 0.6);
+}
+
+/* Обёртка для Hero + фон */
+.hero-wrapper {
   position: relative;
-  padding: 120px 20px 60px;
-  text-align: center;
-  max-width: 800px;
+  background-color: var(--clr-bg-dark);
+  padding: 120px 20px 80px;
+  overflow: hidden;
+  color: var(--clr-text-primary);
+  /* Добавляем градиент для фона, чтобы он был не просто черным */
+  background: linear-gradient(180deg, #000, #0a0a0a);
+}
+
+/* Языковой переключатель — правый верхний угол (Если он еще тут есть, иначе удалить) */
+.language-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+/* Основной блок Hero */
+.hero {
+  max-width: 900px; /* Немного шире */
   margin: 0 auto;
+  text-align: center;
+  position: relative;
   z-index: 1;
 }
 
-.hero::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(-45deg, #111, #333, #eee, #111);
-  background-size: 600% 600%;
-  animation: gradientMove 20s ease infinite;
-  z-index: -1;
-  opacity: 0.2;
-  filter: blur(50px);
-  pointer-events: none;
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
+/* Отбивка для «byline» */
 .hero__byline {
-  font-size: 0.9rem;
-  color: #444; /* Было #aaa — стало темнее */
-  margin-bottom: 10px;
   display: block;
+  font-size: 1rem; /* Чуть крупнее */
+  color: var(--clr-text-secondary);
+  margin-bottom: 15px; /* Больший отступ */
+  letter-spacing: 0.5px;
 }
 
+/* Заголовок с анимацией букв */
 .hero__title {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 1rem 0;
-  color: #000; /* Было #fff — теперь чёрный */
+  font-size: 4.5rem; /* Значительно крупнее */
+  font-weight: 800; /* Очень жирный */
+  line-height: 1.1;
+  margin: 0;
+  font-family: 'Anton', sans-serif;
+  color: var(--clr-text-primary); /* Белый цвет */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), /* Мягкое белое свечение */
+               0 0 30px rgba(0, 210, 255, 0.5), /* Акцентное голубое свечение */
+               0 0 45px rgba(0, 210, 255, 0.3); /* Более рассеянное голубое свечение */
+  letter-spacing: 3px; /* Расширяем буквы */
+  transition: text-shadow 0.3s ease; /* Плавный переход */
+}
+.hero__title:hover {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+                 0 0 40px rgba(0, 210, 255, 0.7),
+                 0 0 60px rgba(0, 210, 255, 0.5);
 }
 
+
+/* Сами «буквы» во время анимации имеют display: inline-block */
+.letter {
+  display: inline-block;
+}
+
+/* Описание / абзац */
 .hero__text {
-  font-size: 1.1rem;
-  color: #111; /* Было #ddd — теперь тёмный */
-  margin-bottom: 2rem;
-  padding: 0 1rem;
+  margin: 2rem 0 2.5rem; /* Увеличенные отступы */
+  font-size: 1.2rem; /* Чуть крупнее */
+  color: var(--clr-text-secondary);
+  max-width: 750px; /* Чуть шире */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6; /* Улучшенная читаемость */
 }
 
-.hero__cta-wrapper {
-  display: flex;
-  justify-content: center; /* Центрируем кнопку */
-  width: 100%;
-  margin-top: 2rem;
-}
-
-.hero-cta {
+/* Прямоугольная кнопка «Book Now» в Hero */
+.hero-cta-button {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 28px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  gap: 0.75rem; /* Больше отступ для иконки */
+  padding: 1rem 2.5rem; /* Увеличенный padding для эффектности */
+  font-size: 1.15rem; /* Крупнее шрифт */
+  font-weight: 700; /* Более жирный */
+  background: var(--clr-accent); /* Чистый акцентный цвет */
+  color: var(--clr-bg-dark); /* Черный текст на акцентном фоне */
   border: none;
-  border-radius: 40px;
-  background-color: #25D366;
-  color: white;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  border-radius: var(--radius-btn); /* Очень скругленная */
+  box-shadow: var(--shadow-light); /* Новая тень */
   text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Плавный переход для всех свойств */
+  text-transform: uppercase; /* Все заглавные */
+  letter-spacing: 1px; /* Расширяем буквы */
 }
 
-.hero-cta:hover {
-  background-color: #1ebc59;
-  transform: translateY(-3px);
+.hero-cta-button:hover {
+  background-color: var(--clr-accent-dark); /* Темнее при наведении */
+  transform: translateY(-4px) scale(1.03); /* Сильнее подъем и увеличение */
+  box-shadow: var(--shadow-light-hover); /* Усиленная тень */
+}
+.hero-cta-button svg { /* Иконка внутри кнопки */
+    font-size: 1.4em; /* Крупнее иконка */
 }
 
-.whatsapp-icon {
-  font-size: 1.5rem;
 
+/* Лёгкий размытый фильтр позади Hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 210, 255, 0.05) 0%, rgba(0, 0, 0, 0) 70%); /* Более интересный радиальный градиент */
+  opacity: 0.8; /* Чуть заметнее */
+  filter: blur(80px); /* Сильнее размытие */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Адаптив для Hero */
+@media (max-width: 768px) {
+  .hero-wrapper {
+    padding: 100px 15px 60px;
+  }
+  .hero__title {
+    font-size: 2.8rem; /* Уменьшаем на мобильных */
+    letter-spacing: 1.5px;
+  }
+  .hero__text {
+    font-size: 1rem;
+    margin: 1.5rem 0;
+  }
+  .hero-cta-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+  .hero__text {
+    font-size: 0.9rem;
+  }
 }

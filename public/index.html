@@ -1,21 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="ru"> <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="%PUBLIC_URL%/icon.png" />
+    <link rel="icon" type="image/png" href="/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="MAESTRO Web Craft — создание лендингов, сайтов и визуальных решений для бизнеса"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="manifest" href="/manifest.json" />
 
     <title>MAESTRO STUDIO</title>
   </head>
   <body>
-    <noscript>Включите JavaScript для отображения сайта.</noscript>
+    <noscript>Для полноценной работы сайта, пожалуйста, включите JavaScript в вашем браузере.</noscript>
+
     <div id="root"></div>
-  </body>
+
+    <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+      (function(d){
+        var s = d.createElement('script');
+        s.setAttribute('data-account', 'ВАШ_РЕАЛЬНЫЙ_USERWAY_ID_ЗДЕСЬ'); // <-- ВСТАВЬ СЮДА СВОЙ ID!
+        s.setAttribute('src', 'https://cdn.userway.org/widget.js');
+        (d.body || d.head).appendChild(s);
+      })(document)
+    </script>
+    <noscript>
+      Виджет доступности UserWay требует включенного JavaScript для корректной работы.
+    </noscript>
+    </body>
 </html>

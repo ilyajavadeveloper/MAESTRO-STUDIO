@@ -1,0 +1,202 @@
+/* ========= Глобальные переменные (тёмная тема + акцент) ========= */
+:root {
+    --clr-accent:       #25D366;
+    --clr-accent-dark:  #128C7E;
+    --clr-bg-panel:     #222;   /* фон всплывающего меню */
+    --clr-text-main:    #fff;   /* основной цвет текста */
+    --clr-text-secondary: #aaa; /* второстепенный текст */
+    --radius:           8px;    /* скругление углов */
+    --gap:              0.75rem;
+  }
+  
+  /* ========= Основная кнопка “Accessibility” ========= */
+  .acc-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--clr-accent), var(--clr-accent-dark));
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .acc-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  }
+  
+  /* ========= Skip-link (очень важный для клавиатурной навигации) ========= */
+  .skip-link {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    background: #fff;
+    color: #000;
+    padding: 8px 16px;
+    z-index: 10000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: top 0.3s ease;
+  }
+  .skip-link:focus {
+    top: 10px;
+  }
+  
+  /* ========= Всплывающее меню ========= */
+  .acc-menu {
+    position: fixed;
+    bottom: 80px; /* над кнопкой “Accessibility” */
+    right: 20px;
+    width: 280px;
+    max-width: 90%;
+    background-color: var(--clr-bg-panel);
+    color: var(--clr-text-main);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    padding: 1rem 1rem 1.5rem;
+    z-index: 999;
+  }
+  
+  /* Заголовок меню */
+  .acc-menu__title {
+    font-size: 1.2rem;
+    margin: 0 0 0.75rem 0;
+    text-align: center;
+    color: var(--clr-text-main);
+  }
+  
+  /* Список опций */
+  .acc-menu__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+  }
+  .acc-menu__item {
+    display: block;
+    width: 100%;
+    background: none;
+    border: 1px solid var(--clr-accent);
+    color: var(--clr-text-main);
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .acc-menu__item:hover {
+    background-color: var(--clr-accent);
+    color: #000;
+  }
+  
+  /* Toggle-опции (чекбоксы) */
+  .acc-menu__toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  .acc-menu__toggle input[type='checkbox'] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+  
+  /* Кнопка сброса настроек */
+  .acc-menu__reset {
+    background: none;
+    border: 1px dashed var(--clr-text-secondary);
+    color: var(--clr-text-secondary);
+    padding: 6px 0;
+    width: 100%;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .acc-menu__reset:hover {
+    color: var(--clr-accent);
+  }
+  
+  /* Кнопка закрыть меню (крестик) */
+  .acc-menu__close {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: var(--clr-text-secondary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .acc-menu__close:hover {
+    color: var(--clr-accent);
+  }
+  
+  /* Исправление для мелких экранов: меню чуть выше */
+  @media (max-width: 400px) {
+    .acc-menu {
+      bottom: 60px;
+      width: 240px;
+    }
+  }
+  
+  /* ========= Классы для включения эффектов доступности ========= */
+  /* 1) Размер шрифта */
+  html.font-smallest {
+    font-size: 80%; /* примерно -20% */
+  }
+  html.font-small {
+    font-size: 90%; /* примерно -10% */
+  }
+  html.font-large {
+    font-size: 110%; /* примерно +10% */
+  }
+  html.font-largest {
+    font-size: 120%; /* примерно +20% */
+  }
+  
+  /* 2) Высокая контрастность */
+  html.high-contrast body {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+  html.high-contrast header,
+  html.high-contrast .navbar,
+  html.high-contrast .hero-wrapper,
+  html.high-contrast .gallery,
+  html.high-contrast .services,
+  html.high-contrast .faq,
+  html.high-contrast .contact,
+  html.high-contrast .footer {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+  
+  /* 3) Инверсия цветов */
+  html.invert-colors {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  
+  /* 4) Отключение анимаций и переходов */
+  html.no-animations *,
+  html.no-animations *::before,
+  html.no-animations *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* 5) Подчёркивание всех ссылок */
+  html.underline-links a {
+    text-decoration: underline !important;
+  }
+  

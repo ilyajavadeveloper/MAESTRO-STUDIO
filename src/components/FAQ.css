@@ -1,17 +1,20 @@
+/* src/components/FAQ.css */
+
+/* ========= Глобальные переменные (тёмная тема) ========= */
 :root {
-  --clr-bg-start: #000;
-  --clr-bg-end: #222;
-  --clr-card-bg: #1a1a1a;
-  --clr-text-light: #eee;
-  --clr-text-secondary: #aaa;
-  --clr-accent: #fff;
-  --radius: 12px;
-  --gap: 1.5rem;
+  --clr-bg-dark:        #000;   /* основной чёрный фон */
+  --clr-card-bg:        #1a1a1a;/* фон карточки (слегка светлее) */
+  --clr-text-light:     #eee;   /* основной текст (белый) */
+  --clr-text-secondary: #aaa;   /* второстепенный текст (светло-серый) */
+  --clr-accent:         #25D366;/* акцент (можно оставить зелёным) */
+  --radius:             12px;   /* радиус скругления */
+  --gap:                1.5rem; /* зазор между элементами */
 }
 
+/* Секция FAQ: чисто чёрный фон */
 .faq {
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, var(--clr-bg-start), var(--clr-bg-end));
+  background-color: var(--clr-bg-dark);
   color: var(--clr-text-light);
 }
 
@@ -20,6 +23,7 @@
   font-size: 2.5rem;
   margin-bottom: 2rem;
   line-height: 1.2;
+  color: var(--clr-text-light);
 }
 
 .faq__list {
@@ -43,7 +47,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--clr-accent);
+  color: var(--clr-text-light);
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
@@ -62,10 +66,12 @@
 .faq__icon {
   margin-right: 0.75rem;
   font-size: 1.5rem;
+  color: var(--clr-accent);
 }
 
 .faq__chevron {
   font-size: 1.5rem;
+  color: var(--clr-text-light);
 }
 
 .faq__answer {

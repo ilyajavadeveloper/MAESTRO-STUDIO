@@ -1,72 +1,104 @@
+// src/components/Hero.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { FaWhatsapp } from 'react-icons/fa';
+import LanguageSwitcher from '../components/LanguageSwitcher.jsx';
 import './Hero.css';
 import './FloatingWhatsapp.css';
 
-const container = {
-  visible: { transition: { staggerChildren: 0.05 } }
-};
-
-const child = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
-};
-
-const Hero = () => {
+export default function Hero() {
   const { t } = useTranslation();
 
+  // Варианты анимации для появления букв:
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,    // увеличили время между буквами
+        delayChildren: 0.6,       // задержка перед стартом буквенной анимации
+      }
+    }
+  };
+
+  const letterVariants = {
+    hidden: { opacity: 0, y: 30, rotate: -15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotate: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 260,
+        damping: 20,
+        mass: 0.8,
+      }
+    }
+  };
+
   return (
-    <motion.section
-      id="hero"
-      className="hero"
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-    >
-      <small className="hero__byline">{t('hero.byline')}</small>
+    <section className="hero-wrapper">
+      {/* Плавающая кнопка WhatsApp */}
+  
+      {/* Языковой переключатель (правый верхний угол) */}
+      <div className="language-container">
+        <LanguageSwitcher />
+      </div>
 
-      <motion.h1
-        className="hero__title"
-        initial="hidden"
-        animate="visible"
-        variants={container}
-      >
-        {t('hero.title').split('').map((char, i) => (
-          <motion.span key={i} variants={child} className="letter">
-            {char}
-          </motion.span>
-        ))}
-      </motion.h1>
-
-      <motion.p
-        className="hero__text"
-        initial={{ opacity: 0, y: 20 }}
+      {/* Основная секция Hero */}
+      <motion.div
+        className="hero"
+        initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.8 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        {t('hero.text')}
-      </motion.p>
+        <motion.small
+          className="hero__byline"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          {t('hero.byline')}
+        </motion.small>
 
-      <div className="hero__cta-wrapper">
+        <motion.h1
+          className="hero__title"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {t('hero.title').split('').map((char, i) => (
+            <motion.span key={i} variants={letterVariants} className="letter">
+              {char}
+            </motion.span>
+          ))}
+        </motion.h1>
+
+        <motion.p
+          className="hero__text"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
+        >
+          {t('hero.text')}
+        </motion.p>
+
         <motion.a
           href={t('hero.ctaLink')}
           target="_blank"
           rel="noopener noreferrer"
-          className="whatsapp-button hero-cta"
+          className="hero-cta-button"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.6 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8, duration: 0.6 }}
         >
-          <FaWhatsapp className="whatsapp-icon" />
+          <FaWhatsapp className="hero__whatsapp-icon" />
           {t('hero.button')}
         </motion.a>
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
-};
-
-export default Hero;
+}

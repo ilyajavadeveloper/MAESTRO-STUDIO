@@ -6,7 +6,8 @@
       "services": "Services",
       "faq": "FAQ",
       "contact": "Contact",
-      "book": "Book Now"
+      "book": "Book Now",
+      "maestroweb": "MAESTROWEB"
     },
     "hero": {
       "byline": "by Maestro Prod.",
@@ -69,6 +70,20 @@
     },
     "footer": {
       "text": "© 2025 MAESTROSTUDIO. All rights reserved."
+    },
+    "accessibility": {
+      "toggle": "Accessibility",
+      "skipToContent": "Skip to main content"
+    },
+    "acc": {
+      "increaseFont": "Increase Font",
+      "decreaseFont": "Decrease Font",
+      "highContrast": "High Contrast",
+      "invertColors": "Invert Colors",
+      "disableAnimations": "Disable Animations",
+      "underlineLinks": "Underline Links",
+      "resetAll": "Reset All",
+      "closeMenu": "Close Menu"
     }
   },
   "ru": {
@@ -78,7 +93,8 @@
       "services": "Услуги",
       "faq": "FAQ",
       "contact": "Контакты",
-      "book": "Записаться"
+      "book": "Записаться",
+      "maestroweb": "MAESTROWEB"
     },
     "hero": {
       "byline": "от Maestro Prod.",
@@ -141,6 +157,20 @@
     },
     "footer": {
       "text": "© 2025 MAESTROSTUDIO. Все права защищены."
+    },
+    "accessibility": {
+      "toggle": "Доступность",
+      "skipToContent": "Перейти к основному контенту"
+    },
+    "acc": {
+      "increaseFont": "Увеличить шрифт",
+      "decreaseFont": "Уменьшить шрифт",
+      "highContrast": "Высокий контраст",
+      "invertColors": "Инвертировать цвета",
+      "disableAnimations": "Отключить анимации",
+      "underlineLinks": "Подчёркивать ссылки",
+      "resetAll": "Сбросить всё",
+      "closeMenu": "Закрыть меню"
     }
   },
   "he": {
@@ -150,7 +180,8 @@
       "services": "שירותים",
       "faq": "שאלות נפוצות",
       "contact": "צור קשר",
-      "book": "להזמין"
+      "book": "להזמין",
+      "maestroweb": "MAESTROWEB"
     },
     "hero": {
       "byline": "by Maestro Prod.",
@@ -199,7 +230,7 @@
         },
         {
           "q": "איפה הסטודיו ממוקם?",
-          "a": "אשדוד, שדרות ירושלים 18, מבנה K-Towers, קומה 4."
+          "a": "אשדוד, Sderot Yerushalayim 18, מבנה K-Towers, קומה 4."
         }
       ]
     },
@@ -208,11 +239,25 @@
       "whatsappLabel": "WhatsApp",
       "whatsappText": "+972 52 438 8967",
       "addressLabel": "כתובת",
-      "addressText": "אשדוד, שדרות ירושלים 18, מבנה K-Towers, קומה 4",
+      "addressText": "אשדוד, Sderot Yerushalayim 18, מבנה K-Towers, קומה 4",
       "byline": "מאסטרו פרוד"
     },
     "footer": {
       "text": "© 2025 MAESTROSTUDIO. כל הזכויות שמורות."
+    },
+    "accessibility": {
+      "toggle": "נגישות",
+      "skipToContent": "דלג לתוכן הראשי"
+    },
+    "acc": {
+      "increaseFont": "להגדיל גופן",
+      "decreaseFont": "להקטין גופן",
+      "highContrast": "ניגודיות גבוהה",
+      "invertColors": "היפוך צבעים",
+      "disableAnimations": "בטל הנפשות",
+      "underlineLinks": "להדגיש קישורים",
+      "resetAll": "איפוס הכל",
+      "closeMenu": "סגור תפריט"
     }
   }
 }

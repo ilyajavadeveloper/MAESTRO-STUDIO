@@ -6,14 +6,16 @@ import './Contact.css';
 const contacts = [
   {
     Icon: IoLogoWhatsapp,
+    id: 'whatsapp',
     label: 'WhatsApp',
     link: 'https://wa.me/972524388967',
     text: '052-438-8967'
   },
   {
     Icon: IoLocationSharp,
+    id: 'address',
     label: 'Address',
-    link: null,
+    link: 'https://www.google.com/maps/search/?api=1&query=Ashdod,+Sderot+Yerushalayim+18,+K-Towers,+4th+Floor',
     text: 'Ashdod, Sderot Yerushalayim 18, K-Towers, 4th Floor'
   }
 ];
@@ -22,13 +24,13 @@ const Contact = () => (
   <section id="contact" className="contact">
     <h2 className="contact__title">Контакты / Contact</h2>
     <div className="contact__grid">
-      {contacts.map(({ Icon, label, link, text }) => (
+      {contacts.map(({ Icon, id, label, link, text }) => (
         <a
-          key={label}
-          href={link || '#'}
-          className="contact__card"
-          target={link ? '_blank' : undefined}
-          rel={link ? 'noopener noreferrer' : undefined}
+          key={id}
+          href={link}
+          className={`contact__card contact__card--${id}`}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <div className="contact__icon">
             <Icon size="2.5rem" />

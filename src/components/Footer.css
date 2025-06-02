@@ -1,0 +1,36 @@
+/* src/components/Footer.css */
+/* Фон футера и вертикальные отступы */
+.footer {
+  background-color: #000;      /* чёрный фон */
+  padding: 2rem 0;             /* 2rem сверху и снизу */
+}
+
+/* Контейнер для иконок: выравнивание по центру, горизонтальный gap */
+.iconContainer {
+  display: flex;
+  justify-content: center;     /* центрирование по горизонтали */
+  align-items: center;         /* центрирование по вертикали */
+  gap: 2.5rem;                 /* расстояние между иконками (40px) */
+}
+
+/* Сброс стилей ссылок */
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Основные стили иконок */
+.icon {
+  width: 3rem;                 /* 48px */
+  height: 3rem;                /* 48px */
+  color: #fff;                 /* белый цвет */
+  transition: transform 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+}
+
+/* Анимация при наведении: масштаб и лёгкая ротация, изменение цвета */
+.icon:hover {
+  transform: scale(1.2) rotate(10deg);
+  color: var(--clr-accent); /* <-- Теперь подсвечивает синим */
+}

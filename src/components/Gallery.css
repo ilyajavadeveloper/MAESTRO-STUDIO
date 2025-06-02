@@ -1,60 +1,109 @@
 /* src/components/Gallery.css */
+
+/* === Глобальные переменные (тёмная тема) === */
+:root {
+  --clr-bg-dark:          #000;          /* основной фон секции */
+  --clr-card-bg:          #0d0d0d;       /* фон карточек, чуть темнее */
+  --clr-text-primary:     #fff;          /* белый текст для заголовка */
+  --clr-accent:           #00d2ff;       /* Голубой акцент */
+  --gap:                  1.5rem;        /* увеличенный зазор между карточками */
+  --card-radius:          16px;          /* более скругленные углы карточки */
+  --card-shadow:          0 6px 18px rgba(0, 0, 0, 0.6); /* Более выраженная тень */
+  --card-shadow-hover:    0 12px 35px rgba(0, 0, 0, 0.8); /* Усиленная тень при наведении */
+  --border-glow:          4px solid rgba(0, 210, 255, 0.4); /* Мягкое свечение границы */
+  --border-glow-hover:    4px solid var(--clr-accent); /* Яркое свечение при наведении */
+}
+
+/* === Секция Gallery === */
 .gallery {
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 5rem 1.5rem; /* Увеличенные отступы */
+  background-color: var(--clr-bg-dark);
+  color: var(--clr-text-primary);
   text-align: center;
-  padding: 20px;
 }
 
-.gallery h2 {
-  font-size: 2rem;
-  margin-bottom: 16px;
+/* Заголовок галереи */
+.gallery__title {
+  font-size: 3.2rem; /* Крупнее заголовок */
+  font-weight: 700;
+  margin-bottom: 2.5rem; /* Больший отступ */
+  color: var(--clr-text-primary);
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Небольшое свечение */
 }
 
-/* Мобильная версия: вертикальная колонка */
-.grid {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+/* === Сетка изображений === */
+.gallery__grid {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: 1fr;
+  max-width: 1500px; /* Чуть шире */
+  margin: 0 auto;
 }
 
-.grid-item {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border-radius: 12px;
+/* Адаптив для сетки */
+@media (min-width: 768px) {
+    .gallery__grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на средних экранах */
+    }
+}
+@media (min-width: 1200px) {
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки на больших экранах */
+  }
+}
+
+/* === Карточка (item) === */
+.gallery__item {
+  background-color: var(--clr-card-bg);
+  border-radius: var(--card-radius);
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  aspect-ratio: 16/10; /* Новое, более кинематографичное соотношение */
+  border: var(--border-glow); /* Добавляем рамку-свечение */
+  position: relative; /* Для эффекта наведения */
 }
 
-.grid-item:hover {
-  transform: scale(1.03);
+.gallery__item:hover {
+  transform: scale(1.03); /* Сильнее увеличение */
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--border-glow-hover); /* Ярче рамка при наведении */
 }
 
-.grid-item img {
+.gallery__item img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease; /* Плавное увеличение изображения при наведении */
 }
 
-/* Сетка на планшетах и выше */
-@media (min-width: 768px) {
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    justify-content: center;
-    margin: 0 auto;
-  }
-  .grid-item {
-    width: auto;
-    aspect-ratio: 4/3;
-  }
+.gallery__item:hover img {
+  transform: scale(1.05); /* Легкое увеличение изображения внутри карточки */
 }
 
-/* Фиксированная сетка на больших экранах */
-@media (min-width: 1200px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+/* Эффект наложения текста при наведении (опционально, если нужно) */
+.gallery__item::after {
+    content: ''; /* Текст или пустой контент */
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%); /* Градиент затемнения снизу */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery__item:hover::after {
+    opacity: 1;
+}
+
+/* Дополнительные стили для мобильных */
+@media (max-width: 480px) {
+    .gallery__title {
+        font-size: 2.5rem;
+    }
+    .gallery__item {
+        aspect-ratio: 4/3; /* Вернем 4/3 на очень маленьких экранах */
+    }
 }
