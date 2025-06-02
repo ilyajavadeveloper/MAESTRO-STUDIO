@@ -2,27 +2,27 @@
 
 /* Общие переменные */
 :root {
-  --clr-bg-dark:          #000;          /* чёрный фон */
-  --clr-bg-dark-alt:      #111;          /* чуть светлее чёрного */
-  --clr-text-primary:     #fff;          /* основной текст — белый */
-  --clr-text-secondary:   #ccc;          /* второстепенный текст — светло-серый */
-  --clr-accent:           #00d2ff;       /* Голубой акцент (как в Navbar) */
-  --clr-accent-dark:      #00a0e6;       /* Более тёмный голубой (как в Navbar) */
-  --gap:                  1.5rem;        /* Увеличенный отступ */
-  --radius-btn:           50px;          /* Очень скругленная кнопка */
-  --shadow-light:         0 8px 25px rgba(0, 210, 255, 0.4); /* Тень от акцента */
-  --shadow-light-hover:   0 12px 30px rgba(0, 210, 255, 0.6);
+  --clr-bg-dark: #000; /* чёрный фон */
+  --clr-bg-dark-alt: #111; /* чуть светлее чёрного */
+  --clr-text-primary: #fff; /* основной текст — белый */
+  --clr-text-secondary: #ccc; /* второстепенный текст — светло-серый */
+  --clr-accent: #00d2ff; /* Голубой акцент (как в Navbar) */
+  --clr-accent-dark: #00a0e6; /* Более тёмный голубой (как в Navbar) */
+  --gap: 1.5rem; /* Увеличенный отступ */
+  --radius-btn: 50px; /* Очень скругленная кнопка */
+  --shadow-light: 0 8px 25px rgba(0, 210, 255, 0.4); /* Тень от акцента */
+  --shadow-light-hover: 0 12px 30px rgba(0, 210, 255, 0.6);
 }
 
 /* Обёртка для Hero + фон */
 .hero-wrapper {
   position: relative;
-  background-color: var(--clr-bg-dark);
+  /* Changed this line to pure black */
+  background-color: var(--clr-bg-dark); /* Pure black background */
+  /* Removed the linear-gradient to make it solid black */
   padding: 120px 20px 80px;
   overflow: hidden;
   color: var(--clr-text-primary);
-  /* Добавляем градиент для фона, чтобы он был не просто черным */
-  background: linear-gradient(180deg, #000, #0a0a0a);
 }
 
 /* Языковой переключатель — правый верхний угол (Если он еще тут есть, иначе удалить) */
@@ -59,18 +59,16 @@
   margin: 0;
   font-family: 'Anton', sans-serif;
   color: var(--clr-text-primary); /* Белый цвет */
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), /* Мягкое белое свечение */
-               0 0 30px rgba(0, 210, 255, 0.5), /* Акцентное голубое свечение */
-               0 0 45px rgba(0, 210, 255, 0.3); /* Более рассеянное голубое свечение */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7),
+    /* Мягкое белое свечение */ 0 0 30px rgba(0, 210, 255, 0.5),
+    /* Акцентное голубое свечение */ 0 0 45px rgba(0, 210, 255, 0.3); /* Более рассеянное голубое свечение */
   letter-spacing: 3px; /* Расширяем буквы */
   transition: text-shadow 0.3s ease; /* Плавный переход */
 }
 .hero__title:hover {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
-                 0 0 40px rgba(0, 210, 255, 0.7),
-                 0 0 60px rgba(0, 210, 255, 0.5);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(0, 210, 255, 0.7), 0 0 60px rgba(0, 210, 255, 0.5);
 }
-
 
 /* Сами «буквы» во время анимации имеют display: inline-block */
 .letter {
@@ -113,18 +111,24 @@
   transform: translateY(-4px) scale(1.03); /* Сильнее подъем и увеличение */
   box-shadow: var(--shadow-light-hover); /* Усиленная тень */
 }
-.hero-cta-button svg { /* Иконка внутри кнопки */
-    font-size: 1.4em; /* Крупнее иконка */
+.hero-cta-button svg {
+  /* Иконка внутри кнопки */
+  font-size: 1.4em; /* Крупнее иконка */
 }
-
 
 /* Лёгкий размытый фильтр позади Hero */
 .hero::before {
   content: '';
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: radial-gradient(circle at center, rgba(0, 210, 255, 0.05) 0%, rgba(0, 0, 0, 0) 70%); /* Более интересный радиальный градиент */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 210, 255, 0.05) 0%,
+    rgba(0, 0, 0, 0) 70%
+  ); /* Более интересный радиальный градиент */
   opacity: 0.8; /* Чуть заметнее */
   filter: blur(80px); /* Сильнее размытие */
   pointer-events: none;
