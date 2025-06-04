@@ -1,4 +1,5 @@
 /* src/components/Footer.css */
+
 /* Фон футера и вертикальные отступы */
 .footer {
   background-color: #000;      /* чёрный фон */
@@ -10,7 +11,7 @@
   display: flex;
   justify-content: center;     /* центрирование по горизонтали */
   align-items: center;         /* центрирование по вертикали */
-  gap: 2.5rem;                 /* расстояние между иконками (40px) */
+  gap: 2.5rem;                  /* расстояние между иконками (40px) */
 }
 
 /* Сброс стилей ссылок */
@@ -25,12 +26,21 @@
   width: 3rem;                 /* 48px */
   height: 3rem;                /* 48px */
   color: #fff;                 /* белый цвет */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.25s ease, color 0.25s ease;
   cursor: pointer;
+}
+
+/* Дополнительное выравнивание буквы "M" */
+.maestro-icon {
+  font-size: 2.5rem;          /* подогнали размер шрифта, чтобы M была пропорциональна */
+           /* строка точно по центру */
 }
 
 /* Анимация при наведении: масштаб и лёгкая ротация, изменение цвета */
 .icon:hover {
   transform: scale(1.2) rotate(10deg);
-  color: var(--clr-accent); /* <-- Теперь подсвечивает синим */
+  color: var(--clr-accent);    /* подчёркивает голубым при наведении */
 }

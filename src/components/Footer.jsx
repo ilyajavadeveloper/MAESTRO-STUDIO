@@ -1,3 +1,5 @@
+// src/components/Footer.jsx
+
 import React from 'react';
 import { Instagram, Facebook, Linkedin, ExternalLink } from 'lucide-react';
 import './Footer.css';
@@ -48,6 +50,17 @@ export default function Footer() {
           className="link"
         >
           <ExternalLink className="icon" />
+        </a>
+
+        {/* MAESTROWEB (текстовая “иконка”) */}
+        <a
+          href="https://maestro-web-nine.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="MaestroWeb"
+          className="link"
+        >
+          <span className="icon maestro-icon">M</span>
         </a>
       </div>
     </footer>

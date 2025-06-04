@@ -13,8 +13,6 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-// Вместо NaGiShoot импортируем наш общий AccessibilityMenu
-import AccessibilityMenu from './components/AccessibilityMenu';
 
 function App() {
   const { i18n } = useTranslation(); // Инициализируем хук useTranslation
@@ -36,6 +34,7 @@ function App() {
       <Services />
       <FAQ />
       <Contact />
+
 
       <Footer />
     </div>

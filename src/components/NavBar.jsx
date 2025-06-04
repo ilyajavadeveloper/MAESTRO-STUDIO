@@ -11,63 +11,40 @@ const Navbar = () => {
   useEffect(() => {
     // Управляем прокруткой тела страницы при открытом/закрытом меню
     document.body.style.overflow = menuOpen ? 'hidden' : '';
-
-    // Очистка эффекта при размонтировании компонента
     return () => {
-      document.body.style.overflow = ''; // Восстанавливаем прокрутку при уходе со страницы
+      document.body.style.overflow = '';
     };
-  }, [menuOpen]); // Зависимость от состояния меню
+  }, [menuOpen]);
 
   return (
     <header className="navbar">
-      {/* Основной контейнер для содержимого навбара, управляет расположением элементов */}
+      {/* Основной контейнер для содержимого навбара */}
       <div className="navbar-container">
-        {/* Левая часть: логотип и кнопка "Book Now" для десктопа */}
+        {/* Логотип */}
         <div className="navbar__left">
           <div className="navbar__logo">MAESTROSTUDIO</div>
-          {/* Кнопка "Book Now" видна только на десктопе */}
-          <a
-            href="https://wa.me/972524388967"
-            className="navbar__cta navbar__cta--desktop"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t('navbar.book')}
-          </a>
         </div>
 
-        {/* Правая часть навбара на десктопе: ссылка MAESTROWEB и переключатель языка */}
+        {/* Правая часть навбара на десктопе: только переключатель языка */}
         <div className="navbar__right-desktop">
-          {/* НОВАЯ ССЫЛКА НА MAESTROWEB */}
-          <a
-            href="https://maestro-web-nine.vercel.app/" // Ссылка на твой проект MAESTRO-WEB
-            target="_blank"
-            rel="noreferrer"
-            className="navbar__maestroweb-btn" // Новый класс для стилизации
-          >
-            {t('navbar.maestroweb')} {/* Новый ключ перевода */}
-          </a>
-          {/* Переключатель языка для десктопа */}
           <LanguageSwitcher />
         </div>
 
-        {/* Бургер-меню (кнопка) - видна только на мобильных */}
+        {/* Бургер-меню (видно только на мобильных) */}
         <button
           className={`burger ${menuOpen ? 'open' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          {/* Использовал burger-line для соответствия CSS */}
           <span className="burger-line" />
           <span className="burger-line" />
           <span className="burger-line" />
         </button>
-      </div> {/* Конец navbar-container */}
+      </div>
 
-      {/* Выпадающее меню (мобильное) - появляется поверх контента */}
+      {/* Выпадающее меню (мобильное) */}
       <div className={`navbar__menu-wrapper ${menuOpen ? 'open' : ''}`}>
         <nav className="navbar__menu">
-          {/* Ссылки для навигации по секциям страницы */}
           <Link
             to="hero"
             smooth
@@ -104,26 +81,15 @@ const Navbar = () => {
           >
             {t('navbar.faq')}
           </Link>
-          <Link
-            to="contact"
-            smooth
-            offset={-70}
-            duration={500}
-            onClick={() => setMenuOpen(false)}
-          >
-            {t('navbar.contact')}
-          </Link>
-          {/* НОВАЯ ССЫЛКА MAESTROWEB В МОБИЛЬНОМ МЕНЮ - ПЕРЕМЕЩЕНА */}
+          {/* Новая ссылка MAESTROWEBB справа от FAQ */}
           <a
-            href="https://maestro-web-nine.vercel.app/" // Ссылка на твой проект MAESTRO-WEB
+            href="https://maestro-web-nine.vercel.app/"
             target="_blank"
             rel="noreferrer"
             onClick={() => setMenuOpen(false)}
-            className="navbar__maestroweb-link--mobile" // Изменен класс для стилизации как обычной ссылки
           >
-            {t('navbar.maestroweb')}
+            MAESTROWEB
           </a>
-
           {/* Переключатель языка для мобильного меню */}
           <div className="lang-mobile">
             <LanguageSwitcher />

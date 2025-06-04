@@ -524,9 +524,8 @@ section, main {
     left: auto;
     transform-origin: top right; /* Изменить точку трансформации */
 }
-[dir="rtl"] .accessibility-menu-toggle-button { /* Кнопка переключения */
-    /* Возможно, нужно поменять position/margin */
-}
+ /* Возможно, нужно поменять position/margin */
+
 [dir="rtl"] .accessibility-menu-option { /* Пункты меню */
     text-align: right;
     flex-direction: row-reverse; /* Если есть иконки и текст */

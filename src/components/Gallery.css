@@ -2,34 +2,33 @@
 
 /* === Глобальные переменные (тёмная тема) === */
 :root {
-  --clr-bg-dark:          #000;          /* основной фон секции */
-  --clr-card-bg:          #0d0d0d;       /* фон карточек, чуть темнее */
-  --clr-text-primary:     #fff;          /* белый текст для заголовка */
-  --clr-accent:           #00d2ff;       /* Голубой акцент */
-  --gap:                  1.5rem;        /* увеличенный зазор между карточками */
-  --card-radius:          16px;          /* более скругленные углы карточки */
-  --card-shadow:          0 6px 18px rgba(0, 0, 0, 0.6); /* Более выраженная тень */
-  --card-shadow-hover:    0 12px 35px rgba(0, 0, 0, 0.8); /* Усиленная тень при наведении */
-  --border-glow:          4px solid rgba(0, 210, 255, 0.4); /* Мягкое свечение границы */
-  --border-glow-hover:    4px solid var(--clr-accent); /* Яркое свечение при наведении */
+  --clr-bg-dark:            #000;                             /* основной фон секции */
+  --clr-card-bg:            #0d0d0d;                          /* фон карточек, чуть темнее */
+  --clr-text-primary:       #fff;                             /* белый текст для заголовка */
+  --clr-accent:             #00d2ff;                          /* Голубой акцент */
+  --gap:                    1.5rem;                           /* увеличенный зазор между карточками */
+  --card-radius:            16px;                             /* более скругленные углы карточки */
+  --card-shadow:            0 6px 18px rgba(0, 0, 0, 0.6);     /* Более выраженная тень */
+  --card-shadow-hover:      0 12px 35px rgba(0, 0, 0, 0.8);    /* Усиленная тень при наведении */
+  --border-default-white:   4px solid rgba(255, 255, 255, 0.4); /* Полупрозрачная белая рамка по умолчанию */
+  --border-hover-blue:      4px solid var(--clr-accent);       /* Синяя рамка при наведении или фокусе */
 }
 
 /* === Секция Gallery === */
 .gallery {
-  padding: 5rem 1.5rem; /* Увеличенные отступы */
+  padding: 5rem 1.5rem;
   background-color: var(--clr-bg-dark);
   color: var(--clr-text-primary);
   text-align: center;
 }
 
-/* Заголовок галереи */
 .gallery__title {
-  font-size: 3.2rem; /* Крупнее заголовок */
+  font-size: 3.2rem;
   font-weight: 700;
-  margin-bottom: 2.5rem; /* Больший отступ */
+  margin-bottom: 2.5rem;
   color: var(--clr-text-primary);
   letter-spacing: 1.5px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Небольшое свечение */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 /* === Сетка изображений === */
@@ -37,19 +36,19 @@
   display: grid;
   gap: var(--gap);
   grid-template-columns: 1fr;
-  max-width: 1500px; /* Чуть шире */
+  max-width: 1500px;
   margin: 0 auto;
 }
 
-/* Адаптив для сетки */
 @media (min-width: 768px) {
-    .gallery__grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 колонки на средних экранах */
-    }
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
+
 @media (min-width: 1200px) {
   .gallery__grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 колонки на больших экранах */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -59,16 +58,32 @@
   border-radius: var(--card-radius);
   overflow: hidden;
   box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  aspect-ratio: 16/10; /* Новое, более кинематографичное соотношение */
-  border: var(--border-glow); /* Добавляем рамку-свечение */
-  position: relative; /* Для эффекта наведения */
+  transition: 
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  aspect-ratio: 16/10;
+  border: var(--border-default-white);
+  position: relative;
+  outline: none; /* Убираем стандартную обводку браузера */
 }
 
+/* При наведении – увеличиваем, усиливаем тень и меняем рамку на синюю */
 .gallery__item:hover {
-  transform: scale(1.03); /* Сильнее увеличение */
+  transform: scale(1.03);
   box-shadow: var(--card-shadow-hover);
-  border-color: var(--border-glow-hover); /* Ярче рамка при наведении */
+  border: var(--border-hover-blue);
+}
+
+/* При «выборе» (фокусе) тоже показываем синюю рамку */
+.gallery__item:focus {
+  border: var(--border-hover-blue);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Убираем стандартную обводку при клике/фокусе */
+.gallery__item:focus {
+  outline: none;
 }
 
 .gallery__item img {
@@ -76,34 +91,40 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease; /* Плавное увеличение изображения при наведении */
+  transition: transform 0.4s ease;
 }
 
 .gallery__item:hover img {
-  transform: scale(1.05); /* Легкое увеличение изображения внутри карточки */
+  transform: scale(1.05);
 }
 
-/* Эффект наложения текста при наведении (опционально, если нужно) */
+/* Эффект наложения текста при наведении (опционально) */
 .gallery__item::after {
-    content: ''; /* Текст или пустой контент */
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%); /* Градиент затемнения снизу */
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  content: '';
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .gallery__item:hover::after {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* Дополнительные стили для мобильных */
 @media (max-width: 480px) {
-    .gallery__title {
-        font-size: 2.5rem;
-    }
-    .gallery__item {
-        aspect-ratio: 4/3; /* Вернем 4/3 на очень маленьких экранах */
-    }
+  .gallery__title {
+    font-size: 2.5rem;
+  }
+  .gallery__item {
+    aspect-ratio: 4/3; /* Вернём 4/3 на очень маленьких экранах */
+  }
 }
