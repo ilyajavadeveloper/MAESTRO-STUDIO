@@ -10,7 +10,16 @@
     />
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
-
+    <script>
+      (function(d){
+        var s = d.createElement("script");
+        s.setAttribute("data-account", "xxxxxxxx");
+        s.setAttribute("src", "https://acsbapp.com/apps/app.js");
+        s.setAttribute("async", "");
+        d.getElementsByTagName("head")[0].appendChild(s);
+      })(document);
+    </script>
+    
     <title>MAESTRO STUDIO</title>
   </head>
   <body>
@@ -20,14 +29,6 @@
 
     <script type="module" src="/src/main.jsx"></script>
 
-    <script>
-      (function(d){
-        var s = d.createElement('script');
-        s.setAttribute('data-account', 'ВАШ_РЕАЛЬНЫЙ_USERWAY_ID_ЗДЕСЬ'); // <-- ВСТАВЬ СЮДА СВОЙ ID!
-        s.setAttribute('src', 'https://cdn.userway.org/widget.js');
-        (d.body || d.head).appendChild(s);
-      })(document)
-    </script>
     <noscript>
       Виджет доступности UserWay требует включенного JavaScript для корректной работы.
     </noscript>

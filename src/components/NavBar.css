@@ -35,7 +35,10 @@ section, main {
   top: 0;
   width: 100%;
   height: 80px; /* Увеличена высота для лучшего вида */
-  background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.5); /* Чуть прозрачнее */
+    backdrop-filter: blur(4px) brightness(1.05); /* Меньше блюра, чуть ярче */
+  }/* Полупрозрачный фон */
   backdrop-filter: blur(10px); /* Эффект "стекла" */
   color: var(--clr-text-light);
   z-index: 1000;

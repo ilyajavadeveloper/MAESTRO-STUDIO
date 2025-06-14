@@ -12,17 +12,16 @@ import Services from './components/Services';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import AccessibilityWidget from './components/AccessibilityWidjet';
 
 
 function App() {
   const { i18n } = useTranslation(); // Инициализируем хук useTranslation
 
   useEffect(() => {
-    // Устанавливаем атрибут dir на HTML-элементе при изменении языка
-    // i18n.dir() возвращает 'rtl' для RTL языков (как 'he') и 'ltr' для LTR языков (как 'en', 'ru')
     document.documentElement.dir = i18n.dir(i18n.language);
-  }, [i18n.language]); // Эффект будет запускаться при смене языка
-
+  }, [i18n.language, i18n]); // добавляем i18n в зависимости
+  
   return (
     <div>
       <Navbar />
@@ -34,9 +33,10 @@ function App() {
       <Services />
       <FAQ />
       <Contact />
-
+<AccessibilityWidget/>
 
       <Footer />
+      
     </div>
   );
 }
