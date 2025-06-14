@@ -12,6 +12,7 @@ import img6 from '../assets/gallery-6.png';
 import img7 from '../assets/gallery-7.png';
 import img8 from '../assets/gallery-8.png';
 import img9 from '../assets/gallery-9.png';
+
 const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
 const Gallery = () => {
@@ -20,7 +21,6 @@ const Gallery = () => {
   return (
     <section id="gallery" className="gallery">
       <h2 className="gallery__title">{t('gallery.title')}</h2>
-      {/* Обёртка для сетки изображений */}
       <div className="gallery__grid">
         {images.map((src, idx) => (
           <div key={idx} className="gallery__item">

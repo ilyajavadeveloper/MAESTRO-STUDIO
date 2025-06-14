@@ -1,17 +1,16 @@
-/* src/components/Contact.css */
 :root {
   --clr-bg-dark:        #000;
-  --clr-card-bg:        #0d0d0d; /* Чуть темнее */
+  --clr-card-bg:        #111;
   --clr-text-light:     #eee;
   --clr-primary:        #fff;
   --clr-secondary:      #aaa;
-  --clr-whatsapp:       #25D366; /* Сохраняем зелёный для WhatsApp */
-  --clr-address:        #4285F5; /* Синий для адреса */
-  --clr-accent:         #00d2ff; /* Голубой акцент */
-  --radius:             16px;    /* Больший радиус */
-  --gap:                2rem;    /* Больший зазор */
-  --shadow-contact:     0 6px 20px rgba(0, 0, 0, 0.5);
-  --shadow-contact-hover: 0 10px 30px rgba(0, 0, 0, 0.7);
+  --clr-whatsapp:       #25D366;
+  --clr-address:        #4285F5;
+  --clr-accent:         #00d2ff;
+  --radius:             16px;
+  --gap:                2rem;
+  --shadow-contact:     0 0 20px rgba(255, 255, 255, 0.05);
+  --shadow-contact-hover: 0 0 35px rgba(0, 210, 255, 0.2);
 }
 
 .contact {
@@ -34,8 +33,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--gap);
-  max-width: 800px; /* Шире */
-  margin: 0 auto 3rem; /* Больший отступ снизу */
+  max-width: 800px;
+  margin: 0 auto 3rem;
 }
 
 @media (min-width: 600px) {
@@ -44,109 +43,130 @@
   }
 }
 
-/* Базовый стиль карточки */
 .contact__card {
   display: flex;
   align-items: center;
   background-color: var(--clr-card-bg);
-  border-left: 5px solid transparent; /* Толще рамка */
+  border-left: 5px solid transparent;
   border-radius: var(--radius);
-  padding: 1.5rem 2rem; /* Увеличенный padding */
+  padding: 1.5rem 2rem;
   text-decoration: none;
   color: var(--clr-text-light);
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   box-shadow: var(--shadow-contact);
-  justify-content: center; /* Центрируем содержимое */
-  text-align: left; /* Текст внутри карточки выравниваем влево */
+  justify-content: center;
+  text-align: left;
 }
 
-/* Подсветка WhatsApp — зелёная рамка слева */
 .contact__card--whatsapp {
   border-color: var(--clr-whatsapp);
 }
 
-/* Подсветка Address — синяя рамка слева */
 .contact__card--address {
   border-color: var(--clr-address);
 }
 
 .contact__card:hover {
-  transform: translateY(-8px) scale(1.02); /* Сильнее подъем и увеличение */
-  background-color: rgba(255, 255, 255, 0.08); /* Чуть светлее при наведении */
+  transform: translateY(-8px) scale(1.02);
   box-shadow: var(--shadow-contact-hover);
 }
 
 .contact__icon {
-  margin-right: 1.2rem; /* Больше отступ */
+  margin-right: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
 }
 
 .contact__icon svg {
-  color: var(--clr-accent); /* Акцентный цвет для иконок */
-  font-size: 2.2rem; /* Крупнее иконки */
+  font-size: 2.2rem;
+  color: var(--clr-accent);
+  background-color: transparent !important;
+  fill: currentColor !important;
+  stroke: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
 }
 
-.contact__content { /* Новый класс для контента, чтобы его выравнивать */
-    flex-grow: 1;
+.contact__info,
+.contact__label,
+.contact__text {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  filter: none !important;
+  box-shadow: none !important;
 }
 
 .contact__label {
   display: block;
-  font-weight: 700; /* Жирнее */
-  font-size: 1.1rem; /* Крупнее */
+  font-weight: 700;
+  font-size: 1.1rem;
   color: var(--clr-primary);
-  margin-bottom: 0.2rem; /* Отступ между label и text */
+  margin-bottom: 0.2rem;
 }
 
 .contact__text {
   display: block;
-  font-size: 1rem; /* Крупнее */
+  font-size: 1rem;
   color: var(--clr-secondary);
   line-height: 1.4;
 }
 
 .contact__footer {
-  font-size: 0.95rem; /* Чуть крупнее */
+  font-size: 0.95rem;
   color: var(--clr-secondary);
-  margin-top: 3rem; /* Отступ от сетки */
+  margin-top: 3rem;
   opacity: 0.8;
 }
 
-/* Адаптив для контактов */
 @media (max-width: 768px) {
   .contact {
     padding: 3rem 1rem;
   }
+
   .contact__title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
   }
+
   .contact__card {
     padding: 1rem 1.2rem;
   }
+
   .contact__icon svg {
     font-size: 1.8rem;
   }
+
   .contact__label {
     font-size: 1rem;
   }
+
   .contact__text {
     font-size: 0.9rem;
   }
+
   .contact__footer {
     margin-top: 2rem;
   }
 }
+
 @media (max-width: 480px) {
-    .contact__title {
-        font-size: 2rem;
-    }
-    .contact__card {
-        flex-direction: column; /* На очень маленьких экранах иконка сверху */
-        text-align: center;
-        padding: 1.5rem 1rem;
-    }
-    .contact__icon {
-        margin-right: 0;
-        margin-bottom: 0.5rem;
-    }
+  .contact__title {
+    font-size: 2rem;
+  }
+
+  .contact__card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1rem;
+  }
+
+  .contact__icon {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
 }

@@ -90,32 +90,45 @@
 .hero-cta-button {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem; /* Больше отступ для иконки */
-  padding: 1rem 2.5rem; /* Увеличенный padding для эффектности */
-  font-size: 1.15rem; /* Крупнее шрифт */
-  font-weight: 700; /* Более жирный */
-  background: var(--clr-accent); /* Чистый акцентный цвет */
-  color: var(--clr-bg-dark); /* Черный текст на акцентном фоне */
-  border: none;
-  border-radius: var(--radius-btn); /* Очень скругленная */
-  box-shadow: var(--shadow-light); /* Новая тень */
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  background-color: transparent;
+  color: var(--clr-accent);
+  border: 2px solid var(--clr-accent);
+  border-radius: var(--radius-btn);
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.12);
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease; /* Плавный переход для всех свойств */
-  text-transform: uppercase; /* Все заглавные */
-  letter-spacing: 1px; /* Расширяем буквы */
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  backdrop-filter: blur(4px);
+  position: relative;
+  z-index: 1;
 }
 
 .hero-cta-button:hover {
-  background-color: var(--clr-accent-dark); /* Темнее при наведении */
-  transform: translateY(-4px) scale(1.03); /* Сильнее подъем и увеличение */
-  box-shadow: var(--shadow-light-hover); /* Усиленная тень */
-}
-.hero-cta-button svg {
-  /* Иконка внутри кнопки */
-  font-size: 1.4em; /* Крупнее иконка */
+  background-color: rgba(0, 210, 255, 0.08);
+  color: #fff;
+  border-color: rgba(0, 210, 255, 0.4);
+  box-shadow:
+    0 0 10px rgba(0, 210, 255, 0.3),
+    0 0 25px rgba(0, 210, 255, 0.15),
+    0 0 40px rgba(0, 210, 255, 0.1);
+  transform: translateY(-3px) scale(1.03);
 }
 
+.hero-cta-button svg {
+  font-size: 1.3em;
+  transition: transform 0.3s ease;
+}
+
+.hero-cta-button:hover svg {
+  transform: translateX(4px);
+}
 /* Лёгкий размытый фильтр позади Hero */
 .hero::before {
   content: '';

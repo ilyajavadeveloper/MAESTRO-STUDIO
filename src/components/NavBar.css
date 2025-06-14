@@ -533,4 +533,16 @@ section, main {
 [dir="rtl"] .accessibility-menu-option svg { /* Иконки в меню */
     margin-left: 0;
     margin-right: 10px;
+}.widget-userway {
+  opacity: 0.6 !important;
+  filter: grayscale(100%) brightness(1.2) !important;
+  box-shadow: none !important;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  background: transparent !important;
+}
+
+#userway_widget svg {
+  fill: #eee !important; /* Или var(--clr-text-light) */
+  filter: brightness(1.2) !important;
 }

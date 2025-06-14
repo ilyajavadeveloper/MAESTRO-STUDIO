@@ -1,33 +1,32 @@
-/* src/components/FAQ.css */
-
-/* ========= Глобальные переменные (тёмная тема) ========= */
 :root {
-  --clr-bg-dark:        #000;   /* основной чёрный фон */
-  --clr-card-bg:        #1a1a1a;/* фон карточки (слегка светлее) */
-  --clr-text-light:     #eee;   /* основной текст (белый) */
-  --clr-text-secondary: #aaa;   /* второстепенный текст (светло-серый) */
-  --clr-accent:         #25D366;/* акцент (можно оставить зелёным) */
-  --radius:             12px;   /* радиус скругления */
-  --gap:                1.5rem; /* зазор между элементами */
+  --clr-bg-dark:        #000;
+  --clr-card-bg:        #1a1a1a;
+  --clr-text-light:     #eee;
+  --clr-text-secondary: #aaa;
+  --clr-accent:         #25D366;
+  --radius:             12px;
+  --gap:                1.5rem;
+  --transition-speed:   0.35s;
 }
 
-/* Секция FAQ: чисто чёрный фон */
 .faq {
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   background-color: var(--clr-bg-dark);
   color: var(--clr-text-light);
 }
 
 .faq__title {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+  font-size: 3rem;
+  margin-bottom: 2.5rem;
   line-height: 1.2;
   color: var(--clr-text-light);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  letter-spacing: 1px;
 }
 
 .faq__list {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
   display: grid;
   gap: var(--gap);
@@ -37,25 +36,31 @@
   background: var(--clr-card-bg);
   border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: box-shadow var(--transition-speed) ease;
+}
+
+.faq__item.open {
+  box-shadow: 0 0 25px rgba(37, 211, 102, 0.2);
 }
 
 .faq__question {
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 1.3rem 1.5rem;
   background: none;
   border: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: var(--clr-text-light);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background var(--transition-speed) ease;
 }
 
 .faq__question:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .faq__question-text {
@@ -64,23 +69,45 @@
 }
 
 .faq__icon {
-  margin-right: 0.75rem;
+  margin-right: 0.8rem;
   font-size: 1.5rem;
   color: var(--clr-accent);
 }
 
 .faq__chevron {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--clr-text-light);
+  transition: transform var(--transition-speed);
+}
+
+.faq__item.open .faq__chevron {
+  transform: rotate(180deg);
 }
 
 .faq__answer {
-  padding: 0 1.5rem 1rem;
+  padding: 0 1.5rem;
+  overflow: hidden;
 }
 
 .faq__answer p {
   margin: 0;
   color: var(--clr-text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  padding: 0.5rem 0 1.2rem;
+}
+
+@media (max-width: 480px) {
+  .faq__title {
+    font-size: 2.4rem;
+  }
+
+  .faq__question {
+    font-size: 1.1rem;
+    padding: 1rem 1.2rem;
+  }
+
+  .faq__answer p {
+    font-size: 1rem;
+  }
 }

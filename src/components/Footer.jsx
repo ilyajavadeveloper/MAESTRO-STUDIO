@@ -53,15 +53,7 @@ export default function Footer() {
         </a>
 
         {/* MAESTROWEB (текстовая “иконка”) */}
-        <a
-          href="https://maestro-web-nine.vercel.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="MaestroWeb"
-          className="link"
-        >
-          <span className="icon maestro-icon">M</span>
-        </a>
+ 
       </div>
     </footer>
   );

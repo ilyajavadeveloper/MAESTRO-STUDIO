@@ -1,3 +1,4 @@
+// src/components/FAQ.jsx
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoHelpCircleOutline, IoChevronDown, IoChevronUp } from 'react-icons/io5';
@@ -14,7 +15,7 @@ const FAQ = () => {
       <h2 className="faq__title">{t('faq.title')}</h2>
       <div className="faq__list">
         {items.map((item, idx) => (
-          <div className="faq__item" key={idx}>
+          <div className={`faq__item ${openIndex === idx ? 'open' : ''}`} key={idx}>
             <button
               className="faq__question"
               onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
@@ -30,18 +31,16 @@ const FAQ = () => {
                 <IoChevronDown className="faq__chevron" />
               )}
             </button>
+
             <AnimatePresence initial={false}>
               {openIndex === idx && (
                 <motion.div
                   className="faq__answer"
-                  initial="collapsed"
-                  animate="open"
-                  exit="collapsed"
-                  variants={{
-                    open: { height: 'auto', opacity: 1 },
-                    collapsed: { height: 0, opacity: 0 }
-                  }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.35, ease: 'easeInOut' }}
+                  style={{ overflow: 'hidden' }}
                 >
                   <p>{item.a}</p>
                 </motion.div>

@@ -33,7 +33,7 @@ const Contact = () => (
           rel="noopener noreferrer"
         >
           <div className="contact__icon">
-            <Icon size="2.5rem" />
+            <Icon />
           </div>
           <div className="contact__info">
             <span className="contact__label">{label}:</span>
