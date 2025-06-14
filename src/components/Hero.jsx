@@ -50,14 +50,7 @@ export default function Hero() {
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
         {/* Подпись */}
-        <motion.small
-          className="hero__byline"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          {t('hero.byline')}
-        </motion.small>
+       
 
         {/* Название MAESTROSTUDIO (не переводится) */}
         <motion.h1
