@@ -36,20 +36,20 @@ export default function Hero() {
   };
 
   return (
-    // Применяем черный фон к hero-wrapper
     <section className="hero-wrapper" style={{ backgroundColor: '#000' }}>
-      {/* Языковой переключатель (правый верхний угол) */}
+      {/* Языковой переключатель */}
       <div className="language-container">
         <LanguageSwitcher />
       </div>
 
-      {/* Основная секция Hero */}
+      {/* Основной блок */}
       <motion.div
         className="hero"
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
+        {/* Подпись */}
         <motion.small
           className="hero__byline"
           initial={{ opacity: 0, y: 20 }}
@@ -59,19 +59,21 @@ export default function Hero() {
           {t('hero.byline')}
         </motion.small>
 
+        {/* Название MAESTROSTUDIO (не переводится) */}
         <motion.h1
-          className="hero__title"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {t('hero.title').split('').map((char, i) => (
-            <motion.span key={i} variants={letterVariants} className="letter">
-              {char}
-            </motion.span>
-          ))}
-        </motion.h1>
-
+  className="hero__title"
+  variants={containerVariants}
+  initial="hidden"
+  animate="visible"
+  dir="ltr" // 👈 вот это добавляем
+>
+  {'MAESTROSTUDIO'.split('').map((char, i) => (
+    <motion.span key={i} variants={letterVariants} className="letter">
+      {char}
+    </motion.span>
+  ))}
+</motion.h1>
+        {/* Текст под заголовком */}
         <motion.p
           className="hero__text"
           initial={{ opacity: 0, y: 30 }}
@@ -81,6 +83,7 @@ export default function Hero() {
           {t('hero.text')}
         </motion.p>
 
+        {/* Кнопка WhatsApp */}
         <motion.a
           href={t('hero.ctaLink')}
           target="_blank"

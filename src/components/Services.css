@@ -1,60 +1,67 @@
-/* src/components/Services.css */
-
-/* ========= Глобальные переменные (тёмная тема) ========= */
 :root {
-  --clr-bg-dark:      #000;   /* чисто чёрный фон */
-  --clr-card-bg:      #1a1a1a;/* фон карточки */
-  --clr-text-main:    #eee;   /* основной текст (белый) */
-  --clr-text-sec:     #aaa;   /* второстепенный текст (светло-серый) */
-  --clr-accent:       #25D366;/* акцентный цвет (можно изменить при желании) */
+  --clr-bg-dark:      #000;
+  --clr-card-bg:      #1a1a1a;
+  --clr-text-main:    #eee;
+  --clr-text-sec:     #aaa;
+  --clr-accent:       #25D366;
   --clr-hover-bg:     rgba(255, 255, 255, 0.05);
-  --radius:           12px;   /* радиус скругления */
-  --gap:              1.5rem; /* зазор между элементами */
+  --radius:           12px;
+  --gap:              2rem;
 }
 
-/* Секция Services: сплошной чёрный фон */
+/* Центрированная секция */
 .services {
-  padding: 4rem 2rem;
   background-color: var(--clr-bg-dark);
   color: var(--clr-text-main);
-}
-
-.services__title {
+  padding: 6rem 2rem;
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  line-height: 1.2;
-  color: var(--clr-text-main);
 }
 
-.services__grid {
-  display: grid;
-  gap: var(--gap);
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  max-width: 1100px;
+/* Центровка всего содержимого */
+.services__container {
+  max-width: 1200px;
   margin: 0 auto;
 }
 
+/* Заголовок */
+.services__title {
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  color: var(--clr-text-main);
+}
+
+/* Сетка */
+.services__grid {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  justify-content: center;
+}
+
+/* Карточка */
 .services__card {
   background: var(--clr-card-bg);
   border-left: 4px solid transparent;
   border-radius: var(--radius);
-  padding: 1.5rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .services__card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   border-color: var(--clr-accent);
 }
 
+/* Заголовок карточки с иконкой */
 .services__header {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .services__icon {
@@ -64,16 +71,17 @@
 }
 
 .services__card-title {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   margin: 0;
   color: var(--clr-accent);
 }
 
+/* Список фич */
 .services__list {
   list-style: none;
   padding: 0;
   margin: 0;
-  flex-grow: 1;
+  width: 100%;
 }
 
 .services__list li {
