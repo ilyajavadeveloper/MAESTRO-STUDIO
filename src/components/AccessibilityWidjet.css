@@ -1,0 +1,42 @@
+/* Переопределение позиции */
+#sienna-widget {
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+  }
+  
+  /* Стили для кнопки */
+  #sienna-widget button {
+    background-color: #25D366 !important; /* зелёный WhatsApp стиль */
+    color: #fff !important;
+    border-radius: 12px !important;
+    font-family: 'Inter', sans-serif !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
+    transition: transform 0.2s ease !important;
+  }
+  
+  #sienna-widget button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Стили для меню */
+  #sienna-panel {
+    font-family: 'Inter', sans-serif !important;
+    background-color: #121212 !important;
+    color: #eee !important;
+    border-radius: 12px !important;
+    padding: 1rem !important;
+  }
+  
+  /* Текстовые элементы */
+  #sienna-panel label,
+  #sienna-panel span {
+    color: #eee !important;
+    font-size: 0.95rem;
+  }
+  
+  /* Стили чекбоксов/переключателей */
+  #sienna-panel input[type="checkbox"] {
+    accent-color: #25D366 !important;
+  }
+  
