@@ -1,213 +1,203 @@
-/* Hero.css — calm premium + контраст для MAESTROSTUDIO */
-
 :root {
-  /* спокойная премиальная палитра */
   --clr-bg-dark: #0b0f14;
-  --clr-text-primary: #e5e7eb;
+  --clr-text-primary: #f9fafb;
   --clr-text-secondary: #9aa4b2;
 
-  /* мягкие акценты без неона */
-  --clr-accent: #8ab4f8;   /* мягкий голубой */
-  --clr-accent-2: #c3a3ff; /* лавандовый */
-  --clr-accent-3: #6bb7d6; /* приглушённый бирюзовый */
+  --clr-accent: #8ab4f8;
+  --clr-accent-2: #c3a3ff;
+  --clr-accent-3: #6bb7d6;
 
   --radius-btn: 48px;
   --font-main: 'Anton', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
+/* ===================== WRAPPER ===================== */
 .hero-wrapper {
   position: relative;
   background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(138, 180, 248, 0.14), transparent 60%),
-    radial-gradient(900px 500px at 80% 0%,   rgba(195, 163, 255, 0.12), transparent 60%),
-    var(--clr-bg-dark);
-  padding: 120px 20px 88px;
+          radial-gradient(1200px 700px at 20% -10%, rgba(138,180,248,.16), transparent 60%),
+          radial-gradient(1000px 600px at 80% 0%, rgba(195,163,255,.14), transparent 60%),
+          var(--clr-bg-dark);
+
+  padding: 180px 20px 120px;
   overflow: hidden;
   color: var(--clr-text-primary);
-  isolation: isolate; /* чтобы локальные тени и слои не пробивались наружу */
+  isolation: isolate;
 }
 
-/* мягкая аура сверху */
 .hero-wrapper::before {
   content: '';
   position: absolute;
-  inset: -20% -10% auto -10%;
-  height: 50%;
-  background: radial-gradient(40% 60% at 50% 0%, rgba(255, 255, 255, 0.04), transparent 60%);
-  filter: blur(40px);
+  inset: -25% -10% auto -10%;
+  height: 55%;
+  background: radial-gradient(
+          45% 65% at 50% 0%,
+          rgba(255,255,255,.05),
+          transparent 65%
+  );
+  filter: blur(50px);
   z-index: 0;
   pointer-events: none;
 }
 
-.language-container {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  z-index: 5;
-}
-
+/* ===================== HERO CORE ===================== */
 .hero {
-  max-width: 980px;
+  max-width: 1100px;
   margin: 0 auto;
   text-align: center;
   position: relative;
   z-index: 1;
 }
 
-/* ===================== TITLE ===================== */
+/* ===================== TITLE — WHITE / BOLD / PREMIUM ===================== */
 .hero__title {
-  font-size: clamp(2.2rem, 5vw + 1rem, 4.5rem);
-  font-weight: 800;
   font-family: var(--font-main);
-  letter-spacing: 0.12em;
-  margin: 0 auto;
-  display: inline-block;
-  line-height: 1.05;
-  white-space: nowrap;
 
-  /* контраст-бустер */
+  /* ⬆️ жирнее и масштабнее */
+  font-size: clamp(3.6rem, 6.5vw + 1.4rem, 6.8rem);
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  line-height: 1;
+
+  /* ⬇️ ВАЖНО: отступы от текста */
+  margin: 0 auto 3.4rem;
+
+  white-space: nowrap;
   position: relative;
-  z-index: 1; /* выше своей подложки */
+  z-index: 1;
+
+  /* чистый белый с глубиной */
+  color: #ffffff;
+
   text-shadow:
-    0 1px 0 rgba(0, 0, 0, 0.35),
-    0 6px 22px rgba(0, 0, 0, 0.45);
-  -webkit-text-stroke: 0.6px rgba(5, 10, 15, 0.45); /* тонкий stroke для WebKit/Blink */
-  paint-order: stroke fill; /* сначала stroke, потом заливка */
+          0 2px 0 rgba(0,0,0,.35),
+          0 18px 60px rgba(0,0,0,.65);
+
+  -webkit-text-stroke: 1px rgba(0,0,0,.45);
+  paint-order: stroke fill;
 }
 
-/* подложка за заголовком — локально затемняет фон для читабельности */
+/* мягкая затемняющая подложка под заголовком */
 .hero__title::after {
   content: '';
   position: absolute;
-  inset: -12px -18px;  /* размер подложки вокруг текста */
-  border-radius: 28px;
-  background:
-    radial-gradient(120% 140% at 50% 60%,
-      rgba(0, 0, 0, 0.55),
-      rgba(0, 0, 0, 0.18) 60%,
-      rgba(0, 0, 0, 0) 80%);
-  filter: blur(10px);
-  opacity: 0.9;
-  pointer-events: none;
-  z-index: 0; /* ниже текста */
-}
-
-/* градиент шрифта: сначала fallback, потом более светлый вариант */
-.gradient-text {
-  /* fallback для движков без color-mix */
-  background: linear-gradient(100deg, var(--clr-accent), var(--clr-accent-2) 50%, var(--clr-accent-3));
-  /* современный — чуть светлее для контраста */
-  background: linear-gradient(
-    100deg,
-    color-mix(in oklab, var(--clr-accent),   white 28%),
-    color-mix(in oklab, var(--clr-accent-2), white 18%) 50%,
-    color-mix(in oklab, var(--clr-accent-3), white 24%)
+  inset: -22px -36px;
+  border-radius: 44px;
+  background: radial-gradient(
+          140% 160% at 50% 60%,
+          rgba(0,0,0,.65),
+          rgba(0,0,0,.25) 60%,
+          transparent 85%
   );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  filter: blur(18px);
+  z-index: -1;
+  pointer-events: none;
 }
 
-/* shimmer-перелив — для stagger-режима */
+/* градиент выключен — MAESTROSTUDIO всегда белый */
+.hero__title.gradient-text {
+  background: none !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* ===================== LETTERS ===================== */
+.letter {
+  display: inline-block;
+  will-change: transform, opacity;
+  perspective: 900px;
+}
+
+/* shimmer оставляем */
 .shimmer {
   background-size: 200% 100%;
   animation: shimmer-sweep 5s ease-in-out infinite;
 }
 
-.letter {
-  display: inline-block;
-  will-change: transform, opacity;
-}
-
-/* TYPE режим — быстрая печать */
-.typing-title {
-  overflow: hidden;
-  border-right: 2px solid color-mix(in oklab, var(--clr-accent), white 10%);
-  animation: typing 1.2s steps(18) forwards; /* ускорено */
-}
-
-.cursor {
-  display: inline-block;
-  margin-left: 6px;
-  color: var(--clr-accent);
-  animation: blink 1s step-end infinite;
-}
-.done .cursor { animation: none; opacity: 0.65; }
-
-/* ===================== BODY ===================== */
-.hero__text {
-  margin: 1.2rem auto 2rem;
-  font-size: clamp(1rem, 0.6vw + 0.9rem, 1.25rem);
-  color: var(--clr-text-secondary);
-  max-width: 740px;
-  line-height: 1.6;
-}
-
-/* ===================== CTA ===================== */
-.hero-cta-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 0.9rem 2.2rem;
-  font-size: 1.05rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration: none;
-
-  color: var(--clr-text-primary);
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  border-radius: var(--radius-btn);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-  transition: transform .2s ease, box-shadow .25s ease, border-color .2s ease;
-}
-
-.hero-cta-button:hover {
-  transform: translateY(-2px);
-  border-color: rgba(148, 163, 184, 0.35);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
-}
-
-.hero-cta-button svg { font-size: 1.25em; }
-
-/* ===================== MEDIA ===================== */
-@media (max-width: 768px) {
-  .hero-wrapper { padding: 96px 16px 64px; }
-  .hero__text { margin: 1rem 0 1.4rem; }
-}
-
-/* На очень мелких экранах уменьшим межбуквенное,
-   чтобы stroke не «съедал» просветы */
-@media (max-width: 420px) {
-  .hero__title { letter-spacing: 0.08em; }
-}
-
-/* ===================== ANIMS ===================== */
-@keyframes typing { from { width: 0; } to { width: 100%; } }
-@keyframes blink  { 50% { opacity: 0; } }
 @keyframes shimmer-sweep {
   0%   { background-position: 0% 0%; }
   50%  { background-position: 100% 0%; }
   100% { background-position: 0% 0%; }
 }
 
+/* ===================== TEXT ===================== */
+.hero__text {
+  max-width: 760px;
+
+  /* ⬆️ дополнительный воздух от заголовка */
+  margin: 0 auto 3rem;
+
+  font-size: clamp(1.05rem, 0.75vw + 0.9rem, 1.4rem);
+  line-height: 1.7;
+  color: var(--clr-text-secondary);
+}
+
+/* ===================== CTA ===================== */
+.hero-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+
+  padding: 1.1rem 2.8rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  color: var(--clr-text-primary);
+  text-decoration: none;
+
+  background:
+          linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+
+  border: 1px solid rgba(148,163,184,.28);
+  border-radius: var(--radius-btn);
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+          0 8px 34px rgba(0,0,0,.45),
+          inset 0 1px 0 rgba(255,255,255,.06);
+
+  transition:
+          transform .25s ease,
+          box-shadow .3s ease,
+          border-color .25s ease;
+}
+
+.hero-cta-button:hover {
+  transform: translateY(-3px);
+  border-color: rgba(148,163,184,.45);
+  box-shadow:
+          0 18px 54px rgba(0,0,0,.65),
+          inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.hero__whatsapp-icon {
+  font-size: 1.35em;
+}
+
+/* ===================== MEDIA ===================== */
+@media (max-width: 768px) {
+  .hero-wrapper {
+    padding: 140px 16px 96px;
+  }
+
+  .hero__title {
+    letter-spacing: 0.1em;
+    margin-bottom: 2.6rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero__title {
+    font-size: 2.8rem;
+    letter-spacing: 0.06em;
+  }
+}
+
 /* ===================== ACCESSIBILITY ===================== */
 @media (prefers-reduced-motion: reduce) {
-  .shimmer, .typing-title, .cursor { animation: none !important; }
+  .shimmer {
+    animation: none !important;
+  }
 }
-
-/* Boost для режимов повышенного контраста */
-@media (prefers-contrast: more) {
-  .hero__title { -webkit-text-stroke: 1px rgba(0, 0, 0, 0.6); }
-  .hero__title::after { opacity: 1; }
-}
-/* === Force MAESTROSTUDIO white === */
-.hero__title.gradient-text {
-  background: none !important;
-  -webkit-text-fill-color: #fff !important;
-  color: #fff !important;
-}
-
-/* выключаем перелив, если класс остался */
-.shimmer { animation: none !important; }
