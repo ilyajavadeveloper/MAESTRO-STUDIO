@@ -33,7 +33,6 @@ function App() {
       <Services />
       <FAQ />
       <Contact />
-<AccessibilityWidget/>
 
       <Footer />
       
