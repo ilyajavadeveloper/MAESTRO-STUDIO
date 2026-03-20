@@ -11,7 +11,12 @@
     },
     "hero": {
       "byline": "by Maestro Prod.",
+      "eyebrow": "cinematic visuals • premium production • bold identity",
+      "lead": "Visual storytelling, stage energy, production design, and digital presence built to hit hard and stay in memory.",
       "text": "Located on the 4th floor of K-Towers, 18 Sderot Yerushalayim — our studio features minimalist design and professional-grade lighting & sound. Perfect for podcasts, reels, interviews & more.",
+      "highlight1": "creative direction",
+      "highlight2": "photo & video production",
+      "highlight3": "brand atmosphere",
       "button": "Book Now",
       "ctaLink": "https://wa.me/972524388967"
     },
@@ -21,6 +26,8 @@
     },
     "services": {
       "title": "Our Services",
+      "eyebrow": "premium setup • clean production • bold results",
+      "subtitle": "From studio rental to full production, everything is built to look sharp, feel premium, and work without friction.",
       "rental": {
         "title": "Studio & Equipment Rental",
         "features": {
@@ -65,7 +72,6 @@
       "whatsappText": "+972 52 438 8967",
       "addressLabel": "Address",
       "addressText": "Ashdod, Sderot Yerushalayim 18, K-Towers, 4th Floor"
-   
     },
     "footer": {
       "text": "© 2025 MAESTROSTUDIO. All rights reserved."
@@ -97,7 +103,12 @@
     },
     "hero": {
       "byline": "от Maestro Prod.",
+      "eyebrow": "кинематографичный визуал • премиум продакшн • сильный стиль",
+      "lead": "Визуальный сторителлинг, сценическая энергия, продакшн-дизайн и цифровой образ, который бьёт точно и остаётся в памяти.",
       "text": "Расположена на 4-м этаже K-Towers, Sderot Yerushalayim 18 — наша студия выполнена в минималистичном стиле с профессиональным освещением и звуком. Идеально для подкастов, рилсов, интервью и не только.",
+      "highlight1": "креативное направление",
+      "highlight2": "фото и видеопродакшн",
+      "highlight3": "атмосфера бренда",
       "button": "Записаться",
       "ctaLink": "https://wa.me/972524388967"
     },
@@ -107,6 +118,8 @@
     },
     "services": {
       "title": "Наши услуги",
+      "eyebrow": "премиум сетап • чистый продакшн • сильный результат",
+      "subtitle": "От аренды студии до съёмки под ключ — всё выстроено так, чтобы выглядеть остро, ощущаться премиально и работать без лишнего трения.",
       "rental": {
         "title": "Аренда студии и оборудования",
         "features": {
@@ -151,7 +164,6 @@
       "whatsappText": "+972 52 438 8967",
       "addressLabel": "Адрес",
       "addressText": "Ашдод, Sderot Yerushalayim 18, здание K-Towers, 4 этаж"
-      
     },
     "footer": {
       "text": "© 2025 MAESTROSTUDIO. Все права защищены."
@@ -183,7 +195,12 @@
     },
     "hero": {
       "byline": "by Maestro Prod.",
+      "eyebrow": "ויזואל קולנועי • הפקה פרימיום • זהות חזקה",
+      "lead": "סטוריטלינג ויזואלי, אנרגיית במה, עיצוב הפקה ונוכחות דיגיטלית שנכנסים חזק ונשארים בזיכרון.",
       "text": "בקומה הרביעית של K-Towers, שדרות ירושלים 18 — הסטודיו שלנו מעוצב בסגנון מינימליסטי עם תאורה וסאונד מקצועיים. מושלם לפודקאסטים, רילס, ראיונות ועוד.",
+      "highlight1": "כיוון קריאטיבי",
+      "highlight2": "הפקת צילום ווידאו",
+      "highlight3": "אווירת מותג",
       "button": "להזמין",
       "ctaLink": "https://wa.me/972524388967"
     },
@@ -193,6 +210,8 @@
     },
     "services": {
       "title": "השירותים שלנו",
+      "eyebrow": "סטאפ פרימיום • הפקה נקייה • תוצאה חזקה",
+      "subtitle": "מהשכרת סטודיו ועד הפקה מלאה — הכול בנוי כדי להיראות חד, להרגיש פרימיום ולעבוד בלי חיכוך מיותר.",
       "rental": {
         "title": "השכרת סטודיו וציוד",
         "features": {
