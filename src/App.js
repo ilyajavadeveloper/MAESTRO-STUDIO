@@ -12,8 +12,6 @@ import Services from './components/Services';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import AccessibilityWidget from './components/AccessibilityWidjet';
-
 
 function App() {
   const { i18n } = useTranslation(); // Инициализируем хук useTranslation
