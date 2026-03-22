@@ -88,7 +88,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.45 }}
           >
-            cinematic visuals • premium production • bold identity
+            {t('hero.eyebrow', 'cinematic visuals • premium production • bold identity')}
           </motion.div>
 
           {EFFECT === 'stagger' ? (
